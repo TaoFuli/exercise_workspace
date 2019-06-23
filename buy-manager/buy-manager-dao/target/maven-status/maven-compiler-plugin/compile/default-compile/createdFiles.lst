@@ -1,0 +1,11 @@
+com\igeek\mapper\TbContentCategoryMapper.class
+com\igeek\mapper\TbContentMapper.class
+com\igeek\mapper\TbOrderShippingMapper.class
+com\igeek\mapper\TbItemMapper.class
+com\igeek\mapper\TbItemParamMapper.class
+com\igeek\mapper\TbItemCatMapper.class
+com\igeek\mapper\TbUserMapper.class
+com\igeek\mapper\TbOrderMapper.class
+com\igeek\mapper\TbItemDescMapper.class
+com\igeek\mapper\TbItemParamItemMapper.class
+com\igeek\mapper\TbOrderItemMapper.class

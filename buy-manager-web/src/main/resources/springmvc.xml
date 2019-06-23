@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd
+http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+
+	<context:component-scan base-package="com.igeek.controller" />
+	<mvc:annotation-driven />
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<!--放行静态资源文件-->
+	<mvc:default-servlet-handler></mvc:default-servlet-handler>
+
+
+	<!-- 引用dubbo服务 -->
+	<!-- 在注册中心的应用的名称 -->
+	<dubbo:application name="buy-manager-web"/>
+	<!-- 配置注册中心的相关信息 -->
+	<dubbo:registry protocol="zookeeper" address="192.168.8.100:2181"/>
+
+	<!--引用指定的服务
+
+	 interface:从zookeeper注册中心去获取类型为为com.igeek.service.ItemService的服务提供方
+	 id：将从注册中心取到的服务提供方，添加到容器中，并且id是itemService
+	 -->
+	<dubbo:reference interface="com.igeek.service.ItemService" id="itemService"/>
+</beans>
