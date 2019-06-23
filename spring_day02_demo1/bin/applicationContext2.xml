@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 测试Map集合注入 -->
+	<bean id="demo2" class="com.tfl.bean.DemoBean2">
+	<property name="map">
+		<map>
+			<!-- <entry>
+				<key><value>name</value></key>
+				<value>张三</value>
+			</entry> -->
+			<entry key="id" value="1001"/>
+			<entry key="name" value="张三"/>
+			<entry key="sex" value="男"/>
+		</map>
+	</property>
+	
+	<!-- 注入Properties -->
+	<property name="properties">
+		<props>
+			<prop key="id">1003</prop>
+			<prop key="name">李四</prop>
+			<prop key="sex">女</prop>
+		</props>
+	</property>
+	</bean>
+</beans>

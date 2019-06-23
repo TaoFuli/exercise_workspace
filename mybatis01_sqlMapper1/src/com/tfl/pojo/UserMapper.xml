@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 指定命名空间，类似java的包 -->
+<mapper namespace="com.tfl.userSpace">
+	<!-- 按照主键查询 -->
+	<select id="selectById" parameterType="int" 
+		resultType="com.tfl.pojo.User">
+		select * from users where id=#{id}
+	</select>
+	<!-- 查询所有用户 -->
+	<select id="selectAll" resultType="com.tfl.pojo.User">
+		SELECT * FROM users
+	</select>
+	<!-- 插入用户 -->
+	<insert id="insertUser" parameterType="com.tfl.pojo.User">
+		INSERT INTO users(name,sex,age) VALUE(#{name},#{sex},#{age})
+	</insert>
+	<!-- 更新用户信息 -->
+	<update id="updateUser" parameterType="com.tfl.pojo.User">
+		UPDATE users SET name=#{name},sex=#{sex},age=#{age} 
+			where id=#{id}
+	</update>
+	<!-- 按照主键进行删除 -->
+	<delete id="deleteUser" parameterType="int">
+		DELETE FROM users WHERE id=#{id}
+	</delete>
+	
+</mapper>

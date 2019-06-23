@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tfl.mapper.StudentMapper">
+	
+	<!-- 按照主键查询 -->
+	<select id="selectById" parameterType="int" resultType="Student">
+		select id,name,sex,birthday,email from student where id=#{id}
+	</select>
+	<!-- 查询所有 -->
+	<select id="selectAll" resultType="Student">
+		SELECT id,name,sex,birthday,email FROM student
+	</select>
+	<!-- 按名称查询 -->
+	<select id="selectByName" parameterType="java.lang.String"
+		resultType="com.tfl.pojo.Student">
+		SELECT id,name,sex,birthday,email FROM student WHERE name LIKE #{value}	
+	</select>
+	<!-- 按名称模糊查询 -->
+	<select id="selectByName2" parameterType="java.lang.String"
+		resultType="com.tfl.pojo.Student">
+		SELECT id,name,sex,age FROM student WHERE name LIKE '%${value}%'
+	</select>
+	<select id="insertStudent" parameterType="student">
+		INSERT INTO student(name,sex,birthday,email) VALUES(#{name},#{sex},#{birthday},#{email})
+	</select>
+	<!-- 多条件查询 -->
+	<select id="select1" parameterType="com.tfl.pojo.Student"
+		resultType="com.tfl.pojo.Student">
+		<!-- 字符串的区块， 这个块中的特殊符号  不处理	 -->
+		<![CDATA[
+			SELECT id,name,sex,birthday,email FROM student WHERE sex=#{sex} AND age<#{age}
+		]]>
+	</select>
+	<!-- 多条件的查询 -->
+	<select id="select2" parameterType="map" resultType="com.tfl.pojo.Student">
+		<![CDATA[
+			SELECT id,name,sex,age FROM student WHERE sex=#{param_sex} AND age<#{param_age}
+		]]>
+	</select>
+	
+</mapper>

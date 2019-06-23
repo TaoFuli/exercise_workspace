@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- 配置C3P0数据源  -->
+<bean  id="ds"   class="com.mchange.v2.c3p0.ComboPooledDataSource" >
+		<property name="driverClass"  value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl"   value="jdbc:mysql://127.0.0.1:3306/ssm_db_test" />
+		<property name="user"  value="root"/>
+		<property name="password" value="root"/>
+		<property name="checkoutTimeout" value="30000"  />
+		<property name="idleConnectionTestPeriod"  value="30" /> 
+		<property name="initialPoolSize"  value="10"></property>
+		<property name="maxIdleTime" value="30" />
+		<property name="maxPoolSize" value="100"></property>
+		<property name="minPoolSize" value="10"></property>
+		<property name="maxStatements"  value="200" />
+</bean>
+
+
+<!--  配置JDBC Template -->
+<bean id="jdbcTemplate"  class="org.springframework.jdbc.core.JdbcTemplate ">
+		<property name="dataSource"   ref="ds" />
+</bean>
+
+
+
+<!-- 配置Dao  -->
+<bean  id="msgDao"  class="com.tfl.dao.MessageDaoImpl">
+	<property name="template"   ref="jdbcTemplate"/>
+</bean>
+
+<bean  id="userDao"  class="com.tfl.dao.UserDaoImpl">
+	<property name="template"   ref="jdbcTemplate"/>
+</bean> 
+
+
+
+  
+</beans>

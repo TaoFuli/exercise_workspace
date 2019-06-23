@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tfl.mapper.StudentMapper">
+	<!-- 按照主键查询 -->
+	<select id="selectById" parameterType="_int" resultType="student">
+		SELECT id,name,sex,birthday,email FROM student WHERE id=#{id}
+	</select>
+	<select id="selectAll" resultType="student">
+		SELECT id,name,sex,birthday,email FROM student
+	</select>
+	<insert id="insertStudent" parameterType="student">
+		INSERT INTO student(name,sex,birthday,email) 
+		VALUES(#{name},#{sex},#{birthday},#{email})
+	</insert>
+	
+</mapper>

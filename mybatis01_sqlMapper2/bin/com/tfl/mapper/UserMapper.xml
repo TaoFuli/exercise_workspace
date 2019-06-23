@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tfl.userspace">
+	<!-- 按照主键查询 -->
+	<select id="selectById" parameterType="int" resultType="com.tfl.pojo.User">
+		SELECT id as userid,name,sex,age FROM users WHERE id=#{id}
+	</select>
+	<!-- 查询所有 -->
+	<select id="selectAll" resultType="com.tfl.pojo.User">
+		SELECT id,name,sex,age FROM users WHERE name LIKE '%${value}%'
+	</select>
+	
+	<!-- 按名称模糊查询 -->
+	<select id="selectByName" parameterType="java.lang.String"
+		resultType="com.tfl.pojo.User">
+		SELECT id,name,sex,age FROM users WHERE name LIKE #{value}	
+	</select>
+	
+	<!-- 按名称模糊查询2 -->
+	<select id="selectByName2" parameterType="java.lang.String"
+		resultType="com.tfl.pojo.User">
+		SELECT id,name,sex,age FROM users WHERE name LIKE '%${value}%'	
+	</select>
+	
+	<!-- 多条件查询1 -->
+	<select id="select1" parameterType="com.tfl.pojo.User"
+		resultType="com.tfl.pojo.User">
+		<![CDATA[
+			SELECT id,name,sex,age FROM users where sex=#{sex} AND age<#{age}
+		]]>	
+	</select>
+	<!-- 多条件的查询2 -->
+	<select id="select2" parameterType="map" resultType="com.tfl.pojo.User">
+		<![CDATA[
+			SELECT id,name,sex,age FROM users WHERE sex=#{param_sex} AND age<#{param_age}
+		]]>
+	</select>
+	
+	
+	
+</mapper>

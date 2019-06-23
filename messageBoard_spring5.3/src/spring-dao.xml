@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- 读取jdbc.properties配置文件  -->
+<context:property-placeholder location="classpath:jdbc.properties"/>
+
+
+<!-- Spring自带的简单驱动数据源  -->
+<bean id="simpleDataSource"  class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+			<property name="driverClass"  value="${jdbc.driver}" />
+			<property name="url"  value="${jdbc.url}" />
+			<property name="username"  value="${jdbc.username}" />
+			<property name="password"  value="${jdbc.password}" />
+	</bean>
+
+
+<!-- 配置C3P0数据源  -->
+<bean  id="ds"   class="com.mchange.v2.c3p0.ComboPooledDataSource" >
+		<property name="driverClass"  value="${jdbc.driver}" />
+		<property name="jdbcUrl"   value="${jdbc.url}" />
+		<property name="user"  value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+		<property name="checkoutTimeout" value="${c3p0.checkoutTimeout}"  />
+		<property name="idleConnectionTestPeriod"  value="${c3p0.idleConnectionTestPeriod}" /> 
+		<property name="initialPoolSize"  value="${c3p0.initialPoolSize}"></property>
+		<property name="maxIdleTime" value="${c3p0.maxIdleTime}" />
+		<property name="maxPoolSize" value="${c3p0.maxPoolSize}"></property>
+		<property name="minPoolSize" value="${c3p0.minPoolSize}"></property>
+		<property name="maxStatements"  value="${c3p0.maxStatements}" />
+</bean>
+
+
+
+<!--  配置JDBC Template -->
+<bean id="jdbcTemplate"  class="org.springframework.jdbc.core.JdbcTemplate ">
+		<property name="dataSource"   ref="ds" />
+</bean>
+  
+</beans>

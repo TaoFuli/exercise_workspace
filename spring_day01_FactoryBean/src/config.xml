@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 四种创建bean的方法 -->
+	<!-- 直接创建 -->
+	<bean id="p1" class="com.tfl.pojo.Person">
+		<property name="name" value="张三"/>
+		<property name="message" value="我喜欢你"/>
+	</bean>
+	<!-- static FactoryBean静态工厂方式 -->
+	<bean id="p2" class="com.tfl.pojo.PersonFactory"
+		factory-method="createPerson"/>
+	<bean id="p3" class="com.tfl.pojo.PersonFactory"
+		factory-method="createPerson2"/>
+		
+	<!-- 实例工厂 -->
+	<bean id="factory" class="com.tfl.pojo.PersonFactory2" />
+	<bean id="p4" factory-bean="factory" factory-method="createPerson"/>
+	<bean id="p5" factory-bean="factory" factory-method="createPerson2"/>
+	
+	<!-- FactoryBean方式创建 -->
+	<bean id="p6" class="com.tfl.pojo.PersonFactory3"></bean>
+
+</beans>

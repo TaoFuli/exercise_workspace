@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 2。导入 "applicationContext2.xml" -->
+	<import resource="applicationContext2.xml"/>
+	
+	<!-- 测试集合注入 -->
+	<bean id="demo" class="com.tfl.bean.DemoBean1">
+		<!-- 数组注入 -->
+		<property name="arrays">
+			<array>
+				<value>张三</value>
+				<value>李四</value>
+				<value>王五</value>
+				<value>贾六</value>
+				<value>田七</value>
+			</array>
+		</property>
+		
+		<!-- list集合注入 -->
+		<property name="list">
+			<list>
+				<value>1001</value>
+				<value>1001</value>
+				<value>1001</value>
+				<value>1001</value>
+				<value>1001</value>
+				<value>1002</value>
+			</list>
+		</property>
+		<!-- Set集合注入 -->
+		<property name="set">
+			<set>
+				<value>true</value>
+				<value>true</value>
+				<value>true</value>
+				<value>true</value>
+				<value>false</value>
+				<value>true</value>
+				<value>false</value>
+			</set>
+		</property>
+	</bean>
+
+</beans>

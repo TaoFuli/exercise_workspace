@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean class="com.tfl.service.UserServiceImpl"/>
+	
+	<!-- 通知 -->
+
+	<bean id="logAdvice" class="com.tfl.advice.LogAdvice"/>
+	
+	<!-- 配置AOP -->
+	<aop:config>
+		<!-- 配置切面 -->
+		<aop:aspect ref="logAdvice">
+			<!-- 声明一个切入点 -->
+			
+			<!-- <aop:pointcut id="pc1" expression="execution(*com.tfl.service.UserServiceImpl.search(int))"/>
+			<aop:pointcut id="pc2" expression="execution(*com.tfl.service.*.*(..))" />
+			 -->
+			 
+			<aop:pointcut id="pc3" expression="execution(*com.tfl..*.*(..))"  />
+			
+			<!-- 定义通知 -->
+			<aop:before method="beforeMethod" pointcut-ref="pc3"/>	
+		</aop:aspect>
+	</aop:config>
+</beans>

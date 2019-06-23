@@ -1,0 +1,44 @@
+package com.tfl.advice;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Before;
+
+public class LogAdvice {
+	
+	/**
+	 * 	前置对象
+	 */
+	//都需要指定切入点表达式execution(*com.tfl.service.*.*(..))
+	@Before("execution(*com.tfl.service.*.*(..))")
+	public void beforeMethod(JoinPoint jp)
+	{
+		String methodName=jp.getSignature().getName();
+		System.out.println("[系统日志] 前置通知：方法"+methodName);
+	}
+	/**
+	 * 	后置通知
+	 */
+	@AfterReturning("execution(*com.tfl.service.*.*(..))")
+	public void afterReturnningMethod(JoinPoint jp,Object rs)
+	{
+		String methodName=jp.getSignature().getName();
+		System.out.println("[系统日志]  后置通知，方法"+methodName+"返回值："+rs);
+	}
+	/**
+	 * 	最终通知
+	 */
+	@After(value = "execution(*com.tfl.service.*.*(..))")
+	public void afterMethod(JoinPoint jp) {
+		String methodName=jp.getSignature().getName();
+		System.out.println("[系统日志] 最终通知 ，方法："+methodName);
+	}
+	/**
+	 * 	异常通知
+	 */
+	public void throwMethod(JoinPoint jp,Throwable ex) {
+		String methodName=jp.getSignature().getName();
+		System.out.println("[系统日志-异常通知]  方法："+methodName+",发生了异常"+ex.getMessage());
+	}
+}

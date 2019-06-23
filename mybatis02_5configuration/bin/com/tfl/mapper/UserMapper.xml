@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tfl.mapper.UserMapper">
+	<!-- 自定义结果映射 -->
+	<resultMap id="userMap" type="com.tfl.pojo.User">
+		<result property="id" column="userid" javaType="int" jdbcType="INTEGER"/>
+		<result property="username" column="username" javaType="String"
+			jdbcType="VARCHAR"/>
+		<result property="loginName" column="loginName"/>
+		<result property="birthday" column="birthday" />
+		<result property="email" column="email"/>
+	</resultMap>
+	<!-- 传递一个参数 -->
+	<select id="selectById" parameterType="int" resultType="user">
+		SELECT * FROM user WHERE id=#{id}
+	</select>
+	<!-- 传递多个参数 -->
+	<select id="selectByLoginNameAndPassword1" parameterType="user" resultType="user">
+		SELECT * FROM test.user WHERE loginName=#{loginName} AND
+		'password'=PASSWORD(#{password});
+	</select>
+	<!-- 传递多个参数 Map -->
+	<select id="selectByLoginNameAndPassword2" parameterType="map" resultType="user">
+		SELECT * FROM test.user WHERE loginName=#{loginName} AND
+		'password'=PASSWORD(#{password});
+	</select>
+	<!-- 传递多个参数 -->
+	<select id="selectByLoginNameAndPassword3" parameterType="QueryVo"
+		resultType="user">
+		SELECT * FROM test.user WHERE loginName=#{user.loginName} AND	
+		'password'=PASSWORD(#{user.password});
+	</select>
+	<!-- 返回  基本类型 -->
+	<select id="selectCount" resultType="int">
+		SELECT COUNT(1) FROM user
+	</select>
+	<!-- 返回部分列   id,username,loginName -->
+	<select id="selectPart" parameterType="int" resultType="user">
+		SELECT id,username,loginName FROM user WHERE id=#{id}
+	</select>
+	<!-- 返回部分列	id,username,loginName -->
+	<select id="selectPart2" parameterType="int" resultType="map">
+		SELECT id,username,loginName FROM user WHERE id=#{id}
+	</select> 
+	
+	<!-- 返回部分列  id,username,loginName  是list,其中每个元素是一个map -->
+	<select id="selectPart3" resultType="map">
+		SELECT id,username,loginName FROM user
+	</select>
+	
+	<!-- 自定义结果映射  resultMap -->
+	<select id="selectByIdReturnResultMap" parameterType="int" resultMap="userMap">
+		SELECT id as userid,username,loginName,birthday,email FROM user
+		WHERE id=#{id}
+	</select>
+	
+</mapper>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.tfl.mapper&apos; to &apos;mybatis03_demo2_oneToOne/src&apos;&#x0D;&#x0A;- Original project: &apos;mybatis03_demo1_oneToOne&apos;&#x0D;&#x0A;- Destination element: &apos;mybatis03_demo2_oneToOne/src&apos;&#x0D;&#x0A;- Original element: &apos;mybatis03_demo1_oneToOne/src/com.tfl.mapper&apos;" description="Copy package" destination="=mybatis03_demo2_oneToOne/src" element1="/src&lt;com.tfl.mapper" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1542797048189" version="1.0"/>
+</session>

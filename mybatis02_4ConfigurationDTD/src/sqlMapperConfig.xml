@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- 1、外部的属性文件导入 -->
+	<properties resource="jdbc.properties">
+		<property name="jdbc.username" value="root"/>
+		<property name="jdbc.password" value="root"/>
+	</properties>
+	<!-- 2、全局参数配置	可以改变MyBatis 在运行时的参数配置  提高运行性能 --> 
+	<settings>
+		<!-- 开关所有映射器已经配置的缓存 -->
+		<setting name="cacheEnabled" value="true" />
+		<!-- 设置所有对象加载的延迟开关 特定关联关系可以通过设置fetchType属性来覆盖开关状态-->
+		<setting name="lazyLoadingEnabled" value="false"/>
+		<!-- 设置驱动等待数据库响应的秒数，超时时间 -->
+		<setting name="defaultStatementTimeout" value="20"/>
+		<!-- 为驱动结果集获取数量（fetchSize）设置一个提示值 -->
+		<setting name="defaultFetchSize" value="20"/>
+	</settings>
+	
+	<!-- 3、为类添加别名 -->
+	<typeAliases>
+		<!-- 单独添加别名 -->
+		<!-- <typeAlias type="com.tfl.pojo.Student" alias="student"/> -->
+		<!-- 自动为包下所有的类添加一个不区分大小写的别名  为类名 -->
+		<package name="com.tfl.pojo"/>
+	</typeAliases>
+	
+	<!-- 4、自定义类型处理器 -->
+	<!-- <typeHandlers>
+	
+	</typeHandlers>		-->
+	
+	<!-- 5、对象工厂 -->
+	<!-- <objectFactory type="">
+	</objectFactory> -->
+	<!-- 6、配置插件 -->
+	<!-- <plugins>
+		<plugin interceptor="org.mybatis.example.ExamplePlugin">
+			<property name="someProperty" value="100"/>
+		</plugin>
+	</plugins>
+	 -->
+	<!-- 7、运行环境 -->
+	<environments default="development1">
+		<!-- 配置一个环境 -->
+		<environment id="development1">
+			<!-- 使用JDBC事务管理 -->
+			<transactionManager type="JDBC"/>
+			<!-- 数据源，使用自带的连接池	 -->	
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver"/>
+				<property name="url" value="jdbc:mysql://127.0.0.1:3306/test_web"/>
+				<property name="username" value="root"/>
+				<property name="password" value="root"/>
+			</dataSource>
+		</environment>
+		<!-- 配置第2个环境 -->
+		<environment id="development2">
+			<!-- 使用JDBC事务 -->
+			<transactionManager type="JDBC" />
+				<!-- 数据源，使用自带的连接池 -->
+				<dataSource type="POOLED">
+					<property name="driver" value="oracle.jdbc.OracleDriver"/>
+					<property name="url" value="jdbc:oracle://127.0.0"/>
+					<property name="username" value="root"/>
+					<property name="password" value="root"/>
+				</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- 8、配置映射器，添加映射文件*Mapper.xml -->
+	<mappers>
+		<!-- <mapper resource="com/tfl/mapper/StudentMapper.xml"/> -->
+		<!-- <mapper url="file://e://ftpshare"/> -->
+		<mapper class="com.tfl.mapper.StudentMapper"/>
+		<!-- <package name="com.tfl.mapper"/> -->
+	</mappers>
+</configuration>

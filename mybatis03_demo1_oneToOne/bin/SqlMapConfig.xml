@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<properties resource="jdbc.properties"></properties>
+	<typeAliases>
+		<package name="com.tfl.pojo"/>
+	</typeAliases>
+	<!-- 运行环境 -->
+	<environments default="development1">
+		<!-- 配置一个环境 -->
+		<environment id="development1">
+			<!-- 使用JDBC事务管理 -->
+			<transactionManager type="JDBC"/>
+			<!-- 数据源，使用自带的连接池	UNPOOLED|POOLED|JNDI -->	
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver"/>
+				<property name="url" value="jdbc:mysql://127.0.0.1:3306/one_many"/>
+				<property name="username" value="root"/>
+				<property name="password" value="root"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- 添加映射文件*Mapper.xml -->
+	<mappers>
+		<package name="com.tfl.mapper"/>
+	</mappers>
+</configuration>

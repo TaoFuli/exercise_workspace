@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:p="http://www.springframework.org/schema/p"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 构造方法的参数的顺序注入 -->
+	<!-- <bean id="p1" class="com.tfl.pojo.Person">
+		<constructor-arg value="张三"/>
+		<constructor-arg value="你去死"/>
+	</bean> -->
+	<bean id="p1" class="com.tfl.pojo.Person">
+		<constructor-arg value="woxihuanni" index="1"/>
+		<constructor-arg value="张三" index="0" />
+	</bean>
+	
+	<!-- setter方法注入 -->
+	<bean id="u1" class="com.tfl.pojo.User">
+		<property name="name" value="李四"/>
+		<property name="message" value="你是屁"></property>
+	</bean>
+	<!-- spEL表达式注入 -->
+	<bean id="p2" class="com.tfl.pojo.Person" p:name="李四" p:message="你喜欢做饭" />
+</beans>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	
+	<!-- 业务类 -->
+	<bean id="customerService" class="com.tfl.service.CustomerServiceImpl"></bean>
+	<!-- 通知 -->
+	<bean id="logAdvice" class="com.tfl.advice.LogAdvice"/>
+	
+	<!-- 配置AOP -->
+	<aop:config>
+		<!-- 切面定义 -->
+		<aop:aspect id="aspectId" ref="logAdvice">
+			<!-- 前置通知 -->
+			<aop:before method="beforeMethod" pointcut="bean(*Service)"/>
+			
+			<!-- 后置通知  如果需要打印返回值  则，配置returnning="rs" rs的名称要和方法中的参数名称一样 -->
+			<aop:after-returning method="afterReturnningMethod" pointcut="bean(*Service)" returning="rs"/>
+			
+		</aop:aspect>
+	</aop:config>
+</beans>

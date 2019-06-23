@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tfl.mapper.OrderMapper">
+	<!-- 按照主键查询 -->
+	<select id="selectOrderById" resultType="orderUser">
+		SELECT 
+			o.oid,
+			o.createTime,
+			o.user_id uid,
+			o.order_status orderStatus,
+			u.username,
+			u.loginName,
+			u.sex,
+			u.birthday,
+			u.email
+		FROM orders o
+		INNER JOIN users u 
+		ON o.user_id = u.id
+		WHERE oid=#{id}
+	</select>
+	<select id="selectAllOrders" resultType="order">
+		SELECT oid,createtime,order_status orderStatus,user_id
+		FROM orders
+	</select>
+	
+</mapper>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tfl.mapper.UserMapper">
+	
+	<!-- 动态的SQL -->
+	<select id="queryUserByWhere" parameterType="user" resultType="user">
+		SELECT id,username,loginName,password,sex,birthday,email FROM users
+		<where>
+			<choose>
+				<when test="username!=null">
+					and username LIKE '%${username}%'
+				</when>
+				<when test="loginName!=null">
+					and loginName=#{loginName}
+				</when>
+				<when test="sex!=null">
+					AND sex LIKE '%${sex}%'
+				</when>
+				<when test="email!=null">
+						AND email LIKE '%${email}%'
+				</when>
+				<!-- 如以上条件都不满足，则 -->
+				<otherwise>
+					AND sex='男'
+				</otherwise>
+			</choose>
+		</where>
+	</select>
+	
+	<!-- set标签 -->
+	<update id="updateUser" parameterType="user">
+		UPDATE user
+		<set>
+			<if test="username!=null">
+				username=#{username},
+			</if>
+			<if test="password!=null">
+				password=PASSWORD('#{password}'),
+			</if>
+			<if test="sex!=null">
+				sex=#{sex},
+			</if>
+			<if test="email!=null">
+				email=#{email}
+			</if>
+			WHERE id=#{id}
+		</set>
+	</update>
+	
+	<!-- trim标签 -->
+	<update id="updateUser2" parameterType="user">
+		UPDATE user
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="username!=null">
+				username=#{username}
+			</if>
+			<if test="password!=null">
+				password=PASSWORD('#{password}')
+			</if>
+			<if test="sex!=null">
+				sex=#{sex}
+			</if>
+			<if test="email!=null">
+				email=#{email}
+			</if>
+		</trim>
+		WHERE id=#{id}
+	</update>
+	
+</mapper>

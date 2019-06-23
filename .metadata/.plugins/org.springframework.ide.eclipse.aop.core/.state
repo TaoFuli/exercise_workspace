@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="spring_day01_spEL"/>
+<aop-project name="mybatis02_6DLsql"/>
+<aop-project name="mybatis02_7DLsql(choose)"/>
+<aop-project name="spring_day03_AOP"/>
+<aop-project name="mybatis03_demo1_oneToOne"/>
+<aop-project name="springMVC01_demo1"/>
+<aop-project name="spring_day02_aop(CGLibProxy)"/>
+<aop-project name="spring_day02_demo1"/>
+<aop-project name="mybatis03_demo2_oneToOne"/>
+<aop-project name="mybatis02_5configuration"/>
+<aop-project name="mybatis01_sqlMapper1"/>
+<aop-project name="spring_day01_FactoryBean"/>
+<aop-project name="spring-petclinic"/>
+<aop-project name="spring_day05_transaction01"/>
+<aop-project name="spring_day05_transaction2"/>
+<aop-project name="springMVC01_demo2"/>
+<aop-project name="spring_day01_demo1"/>
+<aop-project name="spring_day01_demo3"/>
+<aop-project name="spring_day02_aop"/>
+<aop-project name="spring_day02_demo2"/>
+</aop-reference-model>

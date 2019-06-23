@@ -1,0 +1,16 @@
+<template>
+	<descriptor
+		id="org.springframework.data.gemfire.template.standalone"
+		name="Spring Data GemFire Project (Standalone)"
+		kind="template"
+		category="GemFire"
+		requiresbundle="org.eclipse.m2e.core"
+		version="1.0.0.RELEASE">
+		<description>
+			Creates a Spring Data GemFire project with an embedded cache and one region that runs as a standalone Java
+			application.
+		</description>
+	</descriptor>
+	<project path="" />
+	<json path="wizard.json" />
+</template>

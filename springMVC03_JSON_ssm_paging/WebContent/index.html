@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>分页查询</title>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+
+	$(function(){
+		$("#btn").click(function(){
+			$("#tb").empty();
+			$.getJSON("search1.do",{"queryString":$("#queryString").val(),"ttt":"yes"},
+					function(rs_data){
+						for(var i=0;i<rs_data.data.length;i++)
+						{
+							var tr="<tr>"+
+										"<td>"+rs_data.data[i].id+"</td>"+
+										"<td>"+rs_data.data[i].username+"</td>"+
+										"<td>"+rs_data.data[i].loginName+"</td>"+
+										"<td>"+rs_data.data[i].sex+"</td>"+
+										"<td>"+rs_data.data[i].birthday+"</td>"+
+										"<td>"+rs_data.data[i].email+"</td>"+
+									"</tr>";
+							$("#tb").append(tr);
+						}
+			});
+		});
+	});
+	
+</script>
+</head>
+<body>
+
+	<input id="queryString" placeholder="请输入用户名查询"/>
+	<button id="btn">查询</button>
+	
+<hr>
+	<table style="align:center;width:80%;">
+		<thead>
+			<tr>
+				<td>编号</td>
+				<td>姓名</td>
+				<td>登录名</td>
+				<td>性别</td>
+				<td>出生日期</td>
+				<td>邮箱</td>
+			</tr>
+		</thead>
+		<tbody id="tb"></tbody>
+		
+		<tfoot>
+			<tr>
+				<td colspan="6" id="pages"></td>
+			</tr>
+		</tfoot>
+	</table>
+
+</body>
+</html>

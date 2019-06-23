@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Thu Nov 29 18:09:00 CST 2018
+org.eclipse.jst.jee.server\:/binary\:E\:\\workspace_sts_3.9.6\\Boot_crm\\WebContent\\WEB-INF\\lib\\spring-web-4.3.9.RELEASE.jar=E\:\\sts-bundle-3.0.1\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\Boot_crm\\WEB-INF\\lib\\spring-web-4.3.9.RELEASE.jar
+org.eclipse.jst.jee.server\:Boot_crm=E\:\\sts-bundle-3.0.1\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\Boot_crm

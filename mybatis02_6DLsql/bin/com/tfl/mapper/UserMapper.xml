@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tfl.mapper.UserMapper">
+	<!-- 定义SQL片段 -->
+	<sql id="selectUsersSQL">
+		SELECT id,username,loginName,password,sex,birthday,email FROM users
+	</sql>
+	<!-- 定义SQL片段 -->
+	<sql id="selectUsersSQL2">
+		SELECT ${columns} FROM ${tab}
+	</sql>
+	<!-- 动态的SQL if -->
+	<select id="queryUserByWhere" parameterType="user" resultType="user">
+		<!-- 嵌入片段 -->
+		<include refid="selectUsersSQL2">
+			<property name="columns" value="id,username,loginName,password,sex,birthday,email"/>
+			<property name="tab" value="users"/>
+		</include>
+		WHERE 1=1
+		<if test="sex!=null and sex !=''">
+			AND sex=#{sex}
+		</if>
+		<if test="username!=null and username !=''">
+			AND username LIKE '%${username}%'
+		</if>
+	</select>
+	
+	
+	<!-- where标签 -->
+	<select id="queryUserByWhere2" parameterType="user" resultType="user">
+		<!-- 嵌入sql片段 -->
+		<include refid="selectUsersSQL"/>
+		<!-- where 标签可以自动添加where,同时处理sql语句中的第一个and关键字 -->
+		<where>
+			<if test="sex!=null and sex !=''">
+				AND sex=#{sex}
+			</if>
+			<if test="username!=null and username!=''">
+				AND username LIKE '%${username}%'
+			</if>
+		</where>
+	</select>
+	
+	<!-- 动态的SQL
+		SELECT * FROM users WHERE id IN(10,11,12)
+		 -->
+	
+	<select id="queryUserByIds" parameterType="QueryVo" resultType="user">
+		<!-- 嵌入SQL片段 -->
+		<include refid="selectUsersSQL"/>
+		
+		<!-- foreach循环，collection="" ,item="" ,separator="," open="id IN(  close=")" -->
+		<!-- foreach循环，collection="" ,item="" ,separator="," open="id IN(  close=")" -->
+		<where>
+			<foreach collection="ids" item="myid" separator="," open="id IN(" close=")">
+				#{myid}
+			</foreach>
+		</where>
+	</select>
+	<!-- 批量插入数据 -->
+	<select id="insertList" parameterType="QueryVo">
+		INSERT INTO users(username,loginName,password,sex,email)
+		VALUES
+		<foreach collection="ids" item="uu" separator=",">
+			(#{uu.username},#{uu.loginName},PASSWORD(#{uu.password}),#{uu.sex},#{uu.email})
+		</foreach>
+	</select>
+</mapper>

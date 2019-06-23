@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:tx="http://www.springframework.org/schema/tx"
+
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- 读取配置文件properties -->
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+	
+	<!-- 配置Druid数据源 -->
+	<bean id="druid_dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="driverClassName" value="${jdbc.driver}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+		<property name="filters" value="${druid.filters}"/>
+		<property name="maxActive" value="${druid.maxActive}"/>
+		<property name="validationQuery" value="${druid.validationQuery}"/>
+		<property name="testWhileIdle" value="${druid.testWhileIdle}"/>
+		<property name="testOnBorrow" value="${druid.testOnBorrow}"/>
+		<property name="testOnReturn" value="${druid.testOnReturn}"/>
+	</bean>
+	
+	<!-- 配置JDBC模板 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="druid_dataSource"></property>
+	</bean>
+	
+	<!-- 配置事务管理器 -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="druid_dataSource"/>
+	</bean>
+	
+<!-- 	通知		spring的事务是以方法为单位   确定方法事务   隔离级别   传播级别
+					当发生运行时异常的时候  回滚事务 -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<!-- 设置对应方法的事务     隔离级别和传播级别 -->
+			<!-- 隔离级别
+  				isolation="DEFAULT"
+					DEFAULT			默认   使用 数据库的级别   
+			 		READ_UNCOMMITTED   读取未提交  允许你读取还未提交的改变了的数据。可能导致脏、幻读、不可重复读
+				 	READ_COMMITTED  读取提交  可防止脏读，但幻读和 不可重复读仍可发生
+				 	REPEATABLE_READ  不可重复读   可防止脏、不可重复读，但幻读仍可能发生。
+					SERIALIZABLE   序列化  完全服从 ACID 的隔离级别，确保不发生脏、幻、不可重复读。
+							
+							
+				传播级别		
+				propagation="REQUIRED" 
+					REQUIRED  默认   支持当前事务，如果不存在 就新建一个
+					- SUPPORTS		支持当前事务，如果不存在，就不使用事务
+					- MANDATORY   支持当前事务，如果不存在，抛出异常
+					- REQUIRES_NEW  如果有事务存在，挂起当前事务，创建一个新的事务
+					- NOT_SUPPORTED  以非事务方式运行，如果有事务存在，挂起当前事务
+					- NEVER		以非事务方式运行，如果有事务存在，抛出异常
+							
+				no-rollback-for=""  指定不回滚的异常
+				rollback-for=""     回滚的异常   （非检查异常）
+				 timeout="-1"   超时时间 毫秒   -1  不限制			
+				
+				
+				什么 检查异常(checked Exception)  和  非检查异常(unchecked Exception)  ，区别?
+				
+				非检查异常:是 RuntimeException以及它的子类  都属于 非检查异常
+					运行时异常
+				
+				区别：
+					如果方法中 声明或抛出了   检查异常，调用的时候必须处理
+					如果方法中 声明或抛出了  非检查异常，调用的时候可以不处理
+				 -->
+			
+			<tx:method name="save*" propagation="REQUIRED"/>
+			<tx:method name="insert*" propagation="REQUIRED"/>
+			<tx:method name="add*" propagation="REQUIRED"/>
+			<tx:method name="create*" propagation="REQUIRED"/>
+			<tx:method name="delete*" propagation="REQUIRED"/>
+			<tx:method name="update*" propagation="REQUIRED"/>
+			<tx:method name="find*" propagation="SUPPORTS"
+	read-only="true"/>
+			<tx:method name="select*" propagation="SUPPORTS"
+	read-only="true"/>
+			<tx:method name="get*" propagation="SUPPORTS"
+	read-only="true"/>
+			<tx:method name="query*" propagation="SUPPORTS"
+	read-only="true"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	
+	
+	<!-- 通过AOP配置事务 -->
+	<aop:config>
+		<!-- 配置切入点 -->
+		<aop:pointcut expression="execution(* com.tfl.crm.*.*(..))" id="pc1"/>
+		<!-- 设置通知者 -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="pc1"/>
+	</aop:config>
+</beans>

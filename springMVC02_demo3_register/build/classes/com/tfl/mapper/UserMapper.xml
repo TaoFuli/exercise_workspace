@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tfl.mapper.UserMapper">
+	<insert id="insertUser" parameterType="user">
+		<selectKey keyProperty="id" keyColumn="id" order="AFTER"
+			resultType="int">
+			SELECT LAST_INSERT_ID()
+		</selectKey>	
+		
+		INSERT INTO users(username,loginName,password,sex,birthday,email)
+		VALUE(#{username},#{loginName},#{password},#{sex},#{birthday},#{email})
+	</insert>
+	
+</mapper>

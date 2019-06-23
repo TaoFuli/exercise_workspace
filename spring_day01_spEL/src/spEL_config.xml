@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="txt" class="com.tfl.pojo.TextContext">
+		<property name="name" value="张三"></property>
+		<property name="value" value="你睡醒了吗"></property>
+		<property name="info" value="你说的都对"></property>
+	</bean>
+	spEL表达式的使用
+	<bean id="p1" class="com.tfl.pojo.Person">
+		<property name="name" value="#{txt.name}"/>
+		<property name="message" value="#{txt.info}"/>
+	</bean>
+	
+	<bean id="p1" class
+
+</beans>

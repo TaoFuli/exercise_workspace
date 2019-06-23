@@ -1,0 +1,206 @@
+22:04:11,667  INFO DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+22:04:11,674  INFO DefaultTestContextBootstrapper:209 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+22:04:11,680  INFO DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2c9f9fb0, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2096442d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@9f70c54, org.springframework.test.context.transaction.TransactionalTestExecutionListener@234bef66, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@737996a0]
+22:04:11,854  INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [E:\workspace_sts_3.9.6\spring_day05_transaction01\bin\spring_config.xml]
+22:04:12,012 ERROR TestContextManager:234 - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2096442d] to prepare test instance [com.tfl.service.TestAccount@77be656f]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209)
+Caused by: org.springframework.beans.factory.parsing.BeanDefinitionParsingException: Configuration problem: 'advice-ref' attribute contains empty value.
+Offending resource: file [E:\workspace_sts_3.9.6\spring_day05_transaction01\bin\spring_config.xml]
+
+	at org.springframework.beans.factory.parsing.FailFastProblemReporter.error(FailFastProblemReporter.java:70)
+	at org.springframework.beans.factory.parsing.ReaderContext.error(ReaderContext.java:85)
+	at org.springframework.beans.factory.parsing.ReaderContext.error(ReaderContext.java:80)
+	at org.springframework.aop.config.ConfigBeanDefinitionParser.createAdvisorBeanDefinition(ConfigBeanDefinitionParser.java:180)
+	at org.springframework.aop.config.ConfigBeanDefinitionParser.parseAdvisor(ConfigBeanDefinitionParser.java:140)
+	at org.springframework.aop.config.ConfigBeanDefinitionParser.parse(ConfigBeanDefinitionParser.java:113)
+	at org.springframework.beans.factory.xml.NamespaceHandlerSupport.parse(NamespaceHandlerSupport.java:74)
+	at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1411)
+	at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1401)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.parseBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:172)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.doRegisterBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:142)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.registerBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:94)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.registerBeanDefinitions(XmlBeanDefinitionReader.java:508)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:392)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:336)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:304)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:181)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:217)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:188)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:252)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadBeanDefinitions(AbstractGenericContextLoader.java:257)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:124)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:108)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:251)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)
+	... 25 more
+22:04:28,964  INFO DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+22:04:28,970  INFO DefaultTestContextBootstrapper:209 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+22:04:28,976  INFO DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2c9f9fb0, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2096442d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@9f70c54, org.springframework.test.context.transaction.TransactionalTestExecutionListener@234bef66, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@737996a0]
+22:04:29,028  INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/E:/workspace_sts_3.9.6/spring_day05_transaction01/bin/spring_config.xml]
+22:04:29,185 ERROR TestContextManager:234 - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2096442d] to prepare test instance [com.tfl.service.TestAccount@b59d31]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209)
+Caused by: org.springframework.beans.factory.parsing.BeanDefinitionParsingException: Configuration problem: 'advice-ref' attribute contains empty value.
+Offending resource: URL [file:/E:/workspace_sts_3.9.6/spring_day05_transaction01/bin/spring_config.xml]
+
+	at org.springframework.beans.factory.parsing.FailFastProblemReporter.error(FailFastProblemReporter.java:70)
+	at org.springframework.beans.factory.parsing.ReaderContext.error(ReaderContext.java:85)
+	at org.springframework.beans.factory.parsing.ReaderContext.error(ReaderContext.java:80)
+	at org.springframework.aop.config.ConfigBeanDefinitionParser.createAdvisorBeanDefinition(ConfigBeanDefinitionParser.java:180)
+	at org.springframework.aop.config.ConfigBeanDefinitionParser.parseAdvisor(ConfigBeanDefinitionParser.java:140)
+	at org.springframework.aop.config.ConfigBeanDefinitionParser.parse(ConfigBeanDefinitionParser.java:113)
+	at org.springframework.beans.factory.xml.NamespaceHandlerSupport.parse(NamespaceHandlerSupport.java:74)
+	at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1411)
+	at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1401)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.parseBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:172)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.doRegisterBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:142)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.registerBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:94)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.registerBeanDefinitions(XmlBeanDefinitionReader.java:508)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:392)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:336)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:304)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:181)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:217)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:188)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:252)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadBeanDefinitions(AbstractGenericContextLoader.java:257)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:124)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:108)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:251)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)
+	... 25 more
+22:10:27,162  INFO DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+22:10:27,169  INFO DefaultTestContextBootstrapper:209 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+22:10:27,175  INFO DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2c9f9fb0, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2096442d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@9f70c54, org.springframework.test.context.transaction.TransactionalTestExecutionListener@234bef66, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@737996a0]
+22:10:27,231  INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/E:/workspace_sts_3.9.6/spring_day05_transaction01/bin/spring_config.xml]
+22:10:27,394  INFO GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@26be92ad: startup date [Sun Nov 18 22:10:27 CST 2018]; root of context hierarchy
+22:10:27,929  INFO GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@26be92ad: startup date [Sun Nov 18 22:10:27 CST 2018]; root of context hierarchy
+22:12:41,816  INFO DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+22:12:41,823  INFO DefaultTestContextBootstrapper:209 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+22:12:41,829  INFO DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@50f8360d, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2cb4c3ab, org.springframework.test.context.support.DirtiesContextTestExecutionListener@13c78c0b, org.springframework.test.context.transaction.TransactionalTestExecutionListener@12843fce, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3dd3bcd]
+22:12:41,882  INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/E:/workspace_sts_3.9.6/spring_day05_transaction01/bin/spring_config.xml]
+22:12:42,040  INFO GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@59fa1d9b: startup date [Sun Nov 18 22:12:42 CST 2018]; root of context hierarchy
+22:12:42,579  INFO GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@59fa1d9b: startup date [Sun Nov 18 22:12:42 CST 2018]; root of context hierarchy
+22:19:10,672  INFO DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+22:19:10,677  INFO DefaultTestContextBootstrapper:209 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+22:19:10,684  INFO DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@50f8360d, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2cb4c3ab, org.springframework.test.context.support.DirtiesContextTestExecutionListener@13c78c0b, org.springframework.test.context.transaction.TransactionalTestExecutionListener@12843fce, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3dd3bcd]
+22:19:10,738  INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/E:/workspace_sts_3.9.6/spring_day05_transaction01/bin/spring_config.xml]
+22:19:10,898  INFO GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@59fa1d9b: startup date [Sun Nov 18 22:19:10 CST 2018]; root of context hierarchy
+22:19:11,437  INFO GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@59fa1d9b: startup date [Sun Nov 18 22:19:10 CST 2018]; root of context hierarchy
+22:21:22,823  INFO DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+22:21:22,829  INFO DefaultTestContextBootstrapper:209 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+22:21:22,835  INFO DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2c9f9fb0, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2096442d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@9f70c54, org.springframework.test.context.transaction.TransactionalTestExecutionListener@234bef66, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@737996a0]
+22:21:22,888  INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [spring_config.xml]
+22:21:23,047  INFO GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@26be92ad: startup date [Sun Nov 18 22:21:23 CST 2018]; root of context hierarchy
+22:21:23,565  INFO GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@26be92ad: startup date [Sun Nov 18 22:21:23 CST 2018]; root of context hierarchy
+22:21:34,302  INFO DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+22:21:34,309  INFO DefaultTestContextBootstrapper:209 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+22:21:34,316  INFO DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@50f8360d, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2cb4c3ab, org.springframework.test.context.support.DirtiesContextTestExecutionListener@13c78c0b, org.springframework.test.context.transaction.TransactionalTestExecutionListener@12843fce, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3dd3bcd]
+22:21:34,373  INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [spring_config.xml]
+22:21:34,532  INFO GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@59fa1d9b: startup date [Sun Nov 18 22:21:34 CST 2018]; root of context hierarchy
+22:21:35,045  INFO GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@59fa1d9b: startup date [Sun Nov 18 22:21:34 CST 2018]; root of context hierarchy
+22:22:18,855  INFO DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+22:22:18,867  INFO DefaultTestContextBootstrapper:209 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+22:22:18,868  INFO DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@61dc03ce, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@50f8360d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2cb4c3ab, org.springframework.test.context.transaction.TransactionalTestExecutionListener@13c78c0b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@12843fce]
+22:22:18,921  INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [spring_config.xml]
+22:22:19,082  INFO GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@d8355a8: startup date [Sun Nov 18 22:22:19 CST 2018]; root of context hierarchy
+22:22:19,654  INFO DruidDataSource:715 - {dataSource-1} inited
+22:22:19,918  INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+22:22:19,940  INFO SQLErrorCodesFactory:127 - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+22:22:19,952  INFO GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@d8355a8: startup date [Sun Nov 18 22:22:19 CST 2018]; root of context hierarchy
+22:22:19,955  INFO DruidDataSource:1444 - {dataSource-1} closed
+22:22:26,481  INFO DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+22:22:26,493  INFO DefaultTestContextBootstrapper:209 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+22:22:26,494  INFO DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@97e1986, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@26f67b76, org.springframework.test.context.support.DirtiesContextTestExecutionListener@153f5a29, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7f560810, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@69d9c55]
+22:22:26,552  INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [spring_config.xml]
+22:22:26,716  INFO GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@61832929: startup date [Sun Nov 18 22:22:26 CST 2018]; root of context hierarchy
+22:22:27,456  INFO DruidDataSource:715 - {dataSource-1} inited
+22:22:27,768  INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+22:22:27,809  INFO SQLErrorCodesFactory:127 - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+22:22:27,817  INFO GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@61832929: startup date [Sun Nov 18 22:22:26 CST 2018]; root of context hierarchy
+22:22:27,821  INFO DruidDataSource:1444 - {dataSource-1} closed
+22:30:21,286  INFO DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+22:30:21,298  INFO DefaultTestContextBootstrapper:209 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+22:30:21,299  INFO DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@97e1986, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@26f67b76, org.springframework.test.context.support.DirtiesContextTestExecutionListener@153f5a29, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7f560810, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@69d9c55]
+22:30:21,354  INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [spring_config.xml]
+22:30:21,515  INFO GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@61832929: startup date [Sun Nov 18 22:30:21 CST 2018]; root of context hierarchy
+22:30:22,099  INFO DruidDataSource:715 - {dataSource-1} inited
+22:30:22,432  INFO GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@61832929: startup date [Sun Nov 18 22:30:21 CST 2018]; root of context hierarchy
+22:30:22,434  INFO DruidDataSource:1444 - {dataSource-1} closed
+22:31:15,386  INFO DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+22:31:15,398  INFO DefaultTestContextBootstrapper:209 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+22:31:15,398  INFO DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@97e1986, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@26f67b76, org.springframework.test.context.support.DirtiesContextTestExecutionListener@153f5a29, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7f560810, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@69d9c55]
+22:31:15,455  INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [spring_config.xml]
+22:31:15,616  INFO GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@61832929: startup date [Sun Nov 18 22:31:15 CST 2018]; root of context hierarchy
+22:31:16,195  INFO DruidDataSource:715 - {dataSource-1} inited
+22:31:16,481  INFO GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@61832929: startup date [Sun Nov 18 22:31:15 CST 2018]; root of context hierarchy
+22:31:16,484  INFO DruidDataSource:1444 - {dataSource-1} closed
+23:20:17,644  INFO DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+23:20:17,691  INFO DefaultTestContextBootstrapper:209 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+23:20:17,691  INFO DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@97e1986, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@26f67b76, org.springframework.test.context.support.DirtiesContextTestExecutionListener@153f5a29, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7f560810, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@69d9c55]
+23:20:17,831  INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [spring_config.xml]
+23:20:18,127  INFO GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@61832929: startup date [Sun Nov 25 23:20:18 CST 2018]; root of context hierarchy
+23:20:19,095  INFO GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@61832929: startup date [Sun Nov 25 23:20:18 CST 2018]; root of context hierarchy
+23:20:27,644  INFO DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+23:20:27,660  INFO DefaultTestContextBootstrapper:209 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+23:20:27,660  INFO DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@97e1986, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@26f67b76, org.springframework.test.context.support.DirtiesContextTestExecutionListener@153f5a29, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7f560810, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@69d9c55]
+23:20:27,707  INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [spring_config.xml]
+23:20:27,878  INFO GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@61832929: startup date [Sun Nov 25 23:20:27 CST 2018]; root of context hierarchy
+23:20:28,471  INFO DruidDataSource:715 - {dataSource-1} inited
+23:20:28,924  INFO GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@61832929: startup date [Sun Nov 25 23:20:27 CST 2018]; root of context hierarchy
+23:20:28,924  INFO DruidDataSource:1444 - {dataSource-1} closed

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- service -->
+	<bean id="userService" class="com.tfl.service.UserServiceImpl"/>
+	<!-- 通知 -->
+	<bean id="logAdvice" class="com.tfl.advice.LogAdvice"/>
+	<bean id="logAdvice2" class="com.tfl.advice.LogAdvice2"/>
+	
+	<!-- 配置AOP -->
+	<aop:config>
+		<!-- 配置切面 -->
+		<aop:aspect ref="logAdvice">
+			<!-- 声明一个切入点 -->
+			<aop:pointcut expression="execution(* com.tfl.service.*.*(..))" id="pc1"/>
+			<!-- 定义前置通知 -->
+			<aop:before method="beforeMethod" pointcut-ref="pc1"/>
+			
+			<!-- 定义后置通知 -->
+			<!-- 定义的returning的值要和afterReturnningMethod函数的参数名相同 -->
+			
+			<aop:after-returning method="afterReturnningMethod" 
+				returning="returnValue" pointcut-ref="pc1"/>
+				
+				
+			<!-- 定义最终通知 -->
+			<aop:after method="afterMethod" pointcut-ref="pc1"/>
+			
+			<!-- 异常通知 -->
+			<!-- 只有在发生异常才会执行，ex的名称与throwExceptionMethod(Exception ex)中的参数一样 -->
+			<aop:after-throwing method="throwExceptionMethod" throwing="ex"
+			pointcut-ref="pc1" />
+			
+			<!-- 环绕通知 -->
+			<aop:around method="aroundMethod" pointcut-ref="pc1"/>
+			
+		</aop:aspect>
+		
+		<!-- 配置切面2 -->
+		<!-- <aop:aspect ref="logAdvice2">
+			声明一个切入点
+			<aop:pointcut expression="execution(*com.tfl.service.*.*(..))" id="pc2"/>
+			<aop:before method="beforeMethod2" pointcut-ref="pc2" />
+		</aop:aspect> -->
+	</aop:config>
+</beans>
