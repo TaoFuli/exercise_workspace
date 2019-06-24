@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>无刷新查询</title>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+		$(function(){
+			$("#btn").click(function(){
+				//每次清空一下
+				$("#show").empty();
+				$.getJSON("search.do"
+						,{"querySting":$("#txt").val()}
+						,function(data){
+							for(var i=0;i<data.length;i++){
+								$("#show").append("<li>"+data[i].wid+","
+										+data[i].wleaveWord);
+							}
+						});
+			});
+		});
+
+</script>
+</head>
+<body>
+<input type="text" id="txt" /> <button id="btn">查询</button>
+<br>
+<ul id="show"></ul>
+</body>
+</html>

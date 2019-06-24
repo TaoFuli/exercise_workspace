@@ -1,0 +1,11 @@
+package com.tfl;
+
+import org.junit.jupiter.api.Test;
+
+public class JedisTest01 {
+
+	@Test
+	public void Test() {
+		
+	}
+}

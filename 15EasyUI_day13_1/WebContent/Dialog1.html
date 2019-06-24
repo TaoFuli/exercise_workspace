@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dialog</title>
+<link rel="stylesheet" type="text/css"
+href="easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+href="easyui/themes/icon.css">
+<script type="text/javascript" src="easyui/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+<script>
+	$(function(){
+		$("#btn1").click(function(){
+			$("#dd").dialog("open");
+		});
+		$("#btn2").click(function(){
+			$("#dd").dialog("close");
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<h3>对话框实例</h3>
+	<button id="btn1">显示对话框</button>
+	<button id="btn2">关闭对话框</button>
+	
+	<!-- HTML的方式创建
+		<div id="dd" class="easyui-dialog" title="My Dialog"
+		style="width:400px;height:200px" data-options="iconCls:'icon-save',resizavle:true,modal:true"></div>
+		我的对话框 -->
+	<div id="dd">我的对话框2</div>
+	<script>
+			
+			$("#dd").dialog({
+				title:'My Dialog',
+				width:800,
+				height:400,
+				closed:true,
+				cache:false,
+				href:'DataGrid3.html',
+				modal:false,
+				collapsible:true,
+				minimizable:true,
+				resizable:true,
+				toolbar:[{
+					text:'编辑',
+					iconCls:'icon-edit',
+					handler:function(){alert('edit')}
+				},{
+					text:'帮助',
+					iconCls:'icon-help',
+					handler:function(){alert('help')}
+				},{
+					text:'添加',
+					iconCls:'icon-add',
+					handler:function(){alert('add')}
+				}]
+			});
+	</script>
+</body>
+</html>

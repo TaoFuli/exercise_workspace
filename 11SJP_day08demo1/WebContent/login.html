@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>登录</title>
+</head>
+<body>
+	<div class="">
+		<form action='loginCheck' method='get'>
+			<table>
+				<tr>
+					<td><h2>登录</h2></td>
+				</tr>
+				<tr>
+					<td>用户名：</td>
+					<td><input type='text' name='username' /></td>
+				</tr>
+				<tr>
+					<td>密&nbsp;&nbsp;码：</td>
+					<td><input type='password' name='password' /></td>
+				</tr>
+				<tr>
+					<td>验证码：</td>
+					<td>
+						<input type='text' name='checkCode' />
+						<img src='checkImage' id='checkImg' /> 
+							<script>
+								document.getElementById('checkImg').onclick=function(){                     
+								var r=Math.random();                                                        
+								this.src='checkImage?'+r;                                                   
+								};                                                                          
+			  				</script>
+	  				</td>
+				</tr>
+				<tr>
+					<td><input type='submit' value='登录' style='background-color:lightgoldenrodyellow;'/></td>
+					<td><input type='button' onclick="window.open('register')"
+						name='register' value='注册' style='background-color:lightgoldenrodyellow;' /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

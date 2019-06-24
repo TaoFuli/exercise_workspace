@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+		
+		//ajax
+		function loadData(){
+			//jquery post方法，使用postI(url,提交的数据,回调函数)
+			$.post("getjson.do",{},function(data){
+				var jsonstr=eval(data);
+				for(var i=0;i<jsonstr.length;i++)
+					{
+					var str="<tr>"
+					+"<td>"+jsonstr[i].id+"</td>"
+					+"<td>"+jsonstr[i].username+"</td>"
+					+"<td>"+jsonstr[i].sex+"</td>"
+					+"</tr>";
+					$("#tb").append(str);
+					}
+			});
+		}
+
+</script>
+</head>
+<body>
+
+<button onclick="loadData()">$.post加载数据</button>
+<table style="width:80%;align:center;border:1px;">
+	<thead>
+		<tr>
+			<th>编号</th>
+			<th>姓名</th>
+			<th>性别</th>
+		</tr>
+	</thead>
+	<tbody id="tb">
+	</tbody>
+</table>
+</body>
+</html>

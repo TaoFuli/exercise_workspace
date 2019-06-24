@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册</title>
+		<!-- 添加支持响应式布局的代码 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+		<!--
+			width=device-width 宽度是设备的宽度
+			initial-scale=1    出事的缩放比率
+			shrink-to-fit=no 自动适应手机屏幕宽度
+        -->
+		<!-- 1. 引入bootstrap 样式文件 -->
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+		<!-- 2. 导入jQuery -->
+		<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+		<!-- 3. 导入popper 用于弹窗 提示、下拉框 -->
+		<script type="text/javascript" src="./js/popper.min.js"></script>
+		<!-- 4. 导入bootstrap js文件-->
+		<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+		<!-- 5.导入jQuery的验证脚本 -->
+		<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+		<script>
+			// 找到表单，给表单添加验证的规则
+			$(function() {
+				$("#registerForm").validate({
+					"rules": {
+						"username": {
+							"required": true,
+							"rangelength": [6, 12]
+						},
+						"password": {
+							"required": true,
+							"rangelength": [6, 12]
+						},
+						"comfirmpwd": {
+							"required": true,
+							"equalTo": "#password"
+						},
+						"email": {
+							"required": true,
+							"email": true
+						}
+					},
+					"messages": {
+						"username": {
+							"required": "用户名必须填写",
+							"rangelength": "用户名不合法"
+						},
+						"password": {
+							"required": "密码必须填写",
+							"rangelength": "长度必须是在6-12为"
+						},
+						"comfirmpwd": {
+							"required": "必须填写重复密码",
+							"equalTo": "重复密码必须和密码一致"
+						},
+						"email": {
+							"required": "必须填写邮箱",
+							"email": "邮箱格式不正确"
+						}
+					},
+					errorPlacement: function(error, element) { //指定错误信息位置
+						if(element.is(':radio') || element.is(':checkbox')) { //如果是radio或checkbox
+							//var eid = element.attr('name'); //获取元素的name属性
+							error.appendTo(element.parent()); //将错误信息添加当前元素的父结点后面
+						} else {
+							error.insertAfter(element);
+						}
+					}
+				});
+
+			});
+		</script>
+	</head>
+	<body>
+		<form id="registerForm" action="" method="get">
+			<div class="col-md-2 text-right">
+				<h3>注册</h3>
+			</div>
+			<div class="form-group row">
+				<label class="col-md-2 text-right">用户名:</label>
+				<div class="col-md-6">
+					<input type="text" name="username" placeholder="请输入用户名" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-md-2 text-right">密码:</label>
+				<div class="col-md-6">
+					<input type="password" name="password" placeholder="请输入密码" id="password" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-md-2 text-right">确认密码:</label>
+				<div class="col-md-6">
+					<input type="password" name="comfirmpwd" placeholder="请输入确认密码" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-md-2 text-right">Email:</label>
+				<div class="col-md-6">
+					<input type="email" name="email" placeholder="Email" /></div>
+			</div>
+			<div class="form-group row">
+				<label class="col-md-2 text-right">验证码:</label>
+				<div class="col-md-1 text-left">
+					<input type="text" name="checkCode" style="width:80px;" />
+				</div>
+				<div class="text-left">
+					<img src='checkImage' id='checkImg' />
+					<script>
+						document.getElementById('checkImg').onclick = function() {
+						var r = Math.random();
+						this.src = 'checkImage?' + r;
+						};
+					</script>
+				</div>
+			</div>
+			<div class="form-group row"><br />
+				<div class="col-md-2"></div>
+				<div class="col-md-10">
+					<input type="submit" value="注册" style="width:100px;height:35px;background-color:lightgoldenrodyellow;" />
+				</div>
+			</div>
+		</form>
+	</body>
+</html>

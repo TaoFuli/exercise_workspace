@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>02Servlet_LifeCycle</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>HelloServlet3</servlet-name>
+    <servlet-class>com.mf.生命周期.HelloServlet3</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloServlet3</servlet-name>
+    <url-pattern>/hello3</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>HelloServlet4</servlet-name>
+    <servlet-class>com.mf.生命周期.HelloServlet4</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloServlet4</servlet-name>
+    <url-pattern>/hello4</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>HelloServlet5</servlet-name>
+    <servlet-class>com.mf.生命周期.HelloServlet5</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloServlet5</servlet-name>
+    <url-pattern>/hello5</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>HelloServlet7</servlet-name>
+    <servlet-class>_2ServletConfig.HelloServlet7</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloServlet7</servlet-name>
+    <url-pattern>/hello7</url-pattern>
+  </servlet-mapping>
+</web-app>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form表单组件</title>
+<link rel="stylesheet" type="text/css"
+href="easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+href="easyui/themes/icon.css">
+<script type="text/javascript" src="easyui/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+<script>
+		$(function(){
+			$('#ff').form({
+				url:'datagrid_data.json',
+				onSubmit:function(){
+					//当提交的时候触发
+					if($("#name").val().trim().length==0){
+						alert("请输入姓名！");
+						return false;
+					}
+				},
+				success:function(data){	//提交成功后的返回值
+					alert(data);
+				}
+			});
+			//提交按钮事件 ajax
+			$("#sbtn").click(funtion(){
+				$('#ff').submint();
+			});
+		});
+</script>
+</head>
+<body>
+
+	<form id="ff" action="" method="get">
+		<div>
+			<label for="name">姓名：</label>
+			<input class="easyui-validatebox" type="text" id="name"
+			name="name" data-options="required:true" />
+		</div>
+		<div>
+			<label for="email">邮箱：</label>
+			<input class="easyui-validatebox" type="text"
+			name="email" data-options="validType:'email'"/>
+		</div>
+		<div>
+			<button id="sbtn" type="button">提交</button>
+		</div>
+	</form>
+
+</body>
+</html>

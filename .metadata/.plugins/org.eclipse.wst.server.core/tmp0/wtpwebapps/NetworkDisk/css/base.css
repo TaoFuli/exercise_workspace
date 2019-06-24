@@ -1,0 +1,17 @@
+@charset "utf-8";
+/*去除默认样式 */
+
+	a,address,b,big,blockquote,body,center,cite,code,dd,del,div,dl,dt,em,fieldset
+	,font,form,h1,h2,h3,h4,h5,h6,html,i,iframe,img,ins,label,legend,li,ol,p,pre
+	,small,span,strong,u,ul,var{margin:0;padding:0}
+		a{ text-decoration:none;}
+		a:link{color:white;}
+		
+		ul,ol{list-style:none;}
+		body{font-size:15px; font-family:微软雅黑;}
+		h1,h2,h3,h4,h5,h6{font-weight:normal; font-size:12px;}	
+		img{border:0;vertical-align:middle}
+		em,i,u{font-style:normal}
+		
+		.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}.clearfix{*zoom:1}
+	

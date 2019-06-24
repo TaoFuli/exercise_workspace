@@ -1,0 +1,198 @@
+body 身体
+head 头
+target 目标
+blank 空白
+ordered list 有序列表
+
+unordered list 无序列表
+list item 列表项
+style 样式
+circle 圆
+bgcolor 背景色
+
+width 宽
+height 高
+left  左
+right 右
+top 顶部
+
+bottom 底部
+vertical 垂直
+background 背景
+color 颜色
+border 边框
+
+image 图片
+source 来源
+center 中心
+table 表格
+row 行
+
+column 列
+span 间距
+content 内容
+font 字体
+bold 加粗
+
+size 大小
+family 家族
+weight 重量
+text 文本
+decoration 装饰
+
+cell 单元格
+spacing 间距
+padding 内边距
+margin 外边距
+italic 斜体
+
+position位置
+block块框
+inline行内元素
+solid实线
+dotted点线
+
+repeat重复
+hover鼠标移过
+attachment附属
+link链接
+visited已访问
+
+active激活
+disable禁用
+frame框架
+scroll滚动条
+form表单
+
+action方式
+post
+get
+selected选中
+checked选中
+
+option选项
+multiple多选
+textarea多行文本框
+password密码框
+radio单选框
+
+checkbox复选款
+button按钮
+value值
+readonly只读
+disabled禁用
+
+reset重置
+submit提交
+display显示
+variant 变体
+normal正常
+
+lighter细体
+underline下划线
+none没有
+overline上划线
+line-through贯穿线
+
+opacity 不透明
+filter过滤
+indent缩进
+super上标
+sub下标
+
+middle中间
+justify 两端对齐
+direction方向
+repeat重复
+scroll滚动
+
+fixed固定
+transparent 透明
+absolute绝对
+relative相对
+
+clear清除
+overflow溢出
+auto自动
+hidden隐藏
+visible可见
+
+collapse折叠
+outline轮廓
+outside外面
+inside里面
+disc圆盘
+
+square正方形
+decimal数字
+separate独立
+layout布局
+cursor光标
+
+pointer指针
+zoom缩放
+attribute属性
+focus焦点
+before之前
+
+after之后
+both两边
+float浮动
+window窗口
+screen屏幕
+document文档
+
+history历史
+event事件
+input输入
+child子结点
+parent父结点
+
+sibling兄弟
+node结点
+element元素
+function方法
+mouse鼠标
+
+leave离开
+enter进入
+move移动
+key键盘
+down
+
+up
+over移过
+press按下
+change改变
+blur失去焦点
+
+load加载
+ready准备
+first第一个
+last最后一个
+even偶数
+odd奇数
+
+empty空
+prepend追加前面
+wrap围绕
+offset偏移量
+each每一个
+
+previous之前的
+base基础
+bind绑定
+resize重置大小
+show显示
+
+toggle切换
+stop停止
+fade褪色
+slide滑动
+
+interval间隔
+timeout时间结束
+alert警告
+confirm确认
+undefined未定义
+

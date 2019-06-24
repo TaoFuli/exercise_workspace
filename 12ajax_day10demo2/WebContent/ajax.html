@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery的ajax</title>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+		function loadData(){
+			//jquery.ajax方法
+			$.ajax({
+				type:"get",
+				url:"getjson.do",
+				data:{},
+				dataType:"json",
+				async:true,
+				success:function(data){
+					//转换为json
+					//var jsonstr=eval(data);
+					//循环
+					for(var i=0;i<data.length;i++){
+						var str="<tr>"+"<td>"+data[i].id+"</td>"
+									+"<td>"+data[i].username+"</td>"
+									+"<td>"+data[i].sex+"</td></tr>";
+						$("#tb").append(str);
+					}
+				},
+				error:function(err){
+					alert("请求失败："+err);
+				}
+			});
+		}
+</script>
+</head>
+<body>
+
+<button onclick="loadData()">加载数据</button>
+<table style="width:80%;align:center;border:1px;">
+	<thead>
+		<tr>
+			<th>编号</th>
+			<th>姓名</th>
+			<th>性别</th>
+		</tr>
+	</thead>
+	<tbody id="tb">
+	
+	</tbody>
+</table>
+</body>
+</html>

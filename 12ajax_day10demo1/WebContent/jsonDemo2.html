@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+		/**
+		实例化javaScript 一个对象
+		
+		语法：
+			{
+				属性1：值,
+				属性2：值,
+				...
+				方法名：function(){}
+			}
+		javaScript的对象集合
+			[
+				{属性1：值，属性2：值,.....},
+				{属性1：值,属性2：值,......},
+				{属性1：值,属性2：值,......},
+				....
+			]
+		*/
+		//var user={id:10001,username:'张三',sex:'男'};
+		//使用javaScript对象
+		//alert(user.id+","+user.username+","+user.sex);
+		//定义用户的集合(数组)
+		// var userlist=[ {id:1001,username:'张三',sex:'男'},
+		//					{id:1002,username:'李四',sex:'男'}];
+		//	for(var i=0;i<userlist.length;i++)
+		//		document.write(userlist[i].id+","+userlist[i].username+","+userlist[i].sex+"<br>");
+		//		}	
+		//
+		//
+		
+		//		json只是javaScript对象的字符串表现形式
+		// 		json是字符串
+		//		var jsonUser="{id:1001,username:"张三",sex:"男"}"
+		
+		/**
+			 * 什么是 JSON ？
+				JSON 指的是 JavaScript 对象表示法（JavaScript Object Notation）  字符串表现形式
+				JSON 是轻量级的文本数据交换格式 
+				JSON 独立于语言 * 
+				JSON 具有自我描述性，更易理解 
+
+			 */
+			 
+			 var jsonuserlist="["+"{'id':1001,'username':'张三','sex':'男'},"
+				 				+"{'id':1002,'username':'李四','sex':'男'}]";
+			//json和javaScript对象的转换
+			//1.json - 转换为 javaScript 对象
+			alert(typeof(jsonuserlist));
+			
+			//使用eval()内置函数
+			var obj=eval(jsonuserlist);
+			alert(typeof(obj));
+			
+			for(var i=0;i<obj.length;i++)
+			{
+				document.write(obj[i].id+","+obj[i].username+","+obj[i].sex+"<br>");
+			}
+			
+			
+			var obj=JSON.stringify(jsonuserlist);
+			//alert(typeof(obj));
+			
+			for(var i=0;i<obj.length;i++)
+			{
+			//	document.write(obj[i].id+","+obj[i].username+","+obj[i].sex+"<br>");
+			}
+			//document.write(obj);
+			
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+			var tr=document.createElement("tr");
+			var td1=document.createElement("td");
+			var td2=document.createElement("td");
+			var td3=document.createElement("td");
+			
+			var d1=document.createTextNode("111111111");
+			td1.appendChild(d1);
+	</script>
+</body>
+</html>

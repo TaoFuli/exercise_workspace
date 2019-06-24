@@ -1,0 +1,10 @@
+package com.tfl;
+
+import redis.clients.jedis.Jedis;
+
+public class JedisTest01 {
+	public static void main(String[] args) {
+		Jedis j=new Jedis();
+		j.
+	}
+}

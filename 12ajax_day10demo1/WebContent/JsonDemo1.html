@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Json的事例</title>
+<script type="text/javascript">
+		var user={id:101,username:'张三',sex:'男'};
+		alert(user.id+","+user.username+","+user.sex);
+		var jsonUser="{id:1001,username:'张三',sex:'男'}";
+		alert(jsonUser);
+		
+		//javascript定义一个类，JavaScript类对象
+		function User(){
+			this.id=10111;
+			this.name="无名";
+			this.sex="男";
+			
+			var hobby="打豆豆";
+			
+			this.print=function(){
+				return this.id+","+this.name+","+this.sex+hobby;
+			}
+			this.setId=function(d){
+				this.id=d;
+			}
+			this.getId=function(){
+				return this.id;
+			}
+			var hehe=function(){
+				return "呵呵";
+			}
+		}
+		//实例化
+		var user1=new User();
+		user1.id=1;
+		user1.name="大帅哥";
+		user1.sex="女";
+		
+		user1.setId(100000);
+		var s=user1.print();
+		alert(s);
+		var user2=new User();
+		alert(user2);
+		
+</script>
+</head>
+<body>
+
+</body>
+</html>

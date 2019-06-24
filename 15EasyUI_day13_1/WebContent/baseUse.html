@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>基本使用</title>
+<link rel="stylesheet" type="text/css" 
+href="easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+href="easyui/themes/icon.css">
+<script type="text/javascript" src="easyui/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+
+</head>
+<body>
+			<!-- 使用javaScript的方式 调用组件 -->
+			 <a id="btn" href="#" >easyui</a>
+			<script>
+				$("#btn").linkbutton({
+					iconCls:'icon-save',
+					text:'保存',
+					disabled:true
+				});
+			</script> 
+			
+			<!-- 调用方法 -->
+			<a class="easyui-linkbutton" id="mya"
+			data-options="iconCls:'icon-add'">保存文件</a>
+			
+			<button id="btn1">禁用</button>
+			<button id="btn2">启用</button>
+			<script>
+				$("#btn1").click(function(){
+					$("#mya").linkbutton('disable');
+				});
+				$("#btn2").click(function(){
+					$("#mya").linkbutton('enable');
+				});
+			</script>
+
+</body>
+</html>

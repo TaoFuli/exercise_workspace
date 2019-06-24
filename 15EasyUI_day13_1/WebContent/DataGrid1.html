@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML方式创建 DataGrid</title>
+<link rel="stylesheet" type="text/css"
+href="easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+href="easyui/themes/icon.css">
+<script type="text/javascript"
+src="easyui/jquery.min.js"></script>
+<script type="text/javascript"
+src="easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+src="easyui/local/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+		<!-- 固定的数据 -->
+		<table class="easyui-datagrid" style="width:305px;height:400px;"
+			data-option="url:'datagrid_data.json',method:'get'">
+			<thead>
+				<tr>
+					<th data-option="field:'code',width:200">编号</th>
+					<th data-option="field:'name',width:200">名称</th>
+					<th data-option="field:'price',width:200">价格</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>001</td><td>name1</td><td>123</td>
+				</tr>
+				<tr>
+					<td>002</td><td>name2</td><td>123</td>
+				</tr>
+				<tr>
+					<td>003</td><td>name3</td><td>123</td>
+				</tr>
+				<tr>
+					<td>004</td><td>name4</td><td>123</td>
+				</tr>
+			</tbody>					
+		</table>
+</body>
+</html>

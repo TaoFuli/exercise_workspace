@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.net.URLEncoder"/>
+<fullyQualifiedTypeName name="sun.misc.BASE64Encoder"/>
+<fullyQualifiedTypeName name="java.io.BufferedOutputStream"/>
+<fullyQualifiedTypeName name="com.shop.utils.C3p0Utils"/>
+<fullyQualifiedTypeName name="junit.framework.TestCase"/>
+<fullyQualifiedTypeName name="com.shop.dao.IUserDao"/>
+<fullyQualifiedTypeName name="com.shop.dao.Impl.UserDaoImpl"/>
+<fullyQualifiedTypeName name="com.shop.service.UserService"/>
+<fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="com.shop.domian.User"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+<fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+<fullyQualifiedTypeName name="lombok.Data"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.apache.commons.dbutils.QueryRunner"/>
+<fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.BeanHandler"/>
+<fullyQualifiedTypeName name="com.tfl.utils.C3P0Utils"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="org.apache.commons.dbutils.ResultSetHandler"/>
+<fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.BeanListHandler"/>
+<fullyQualifiedTypeName name="com.tfl.pojo.LeaveWord"/>
+<fullyQualifiedTypeName name="com.tfl.dao.UserDao"/>
+<fullyQualifiedTypeName name="com.tfl.dao.UserDaoImpl"/>
+<fullyQualifiedTypeName name="com.tfl.pojo.User"/>
+<fullyQualifiedTypeName name="com.tfl.service.UserServiceImpl"/>
+<fullyQualifiedTypeName name="com.tfl.service.UserService"/>
+<fullyQualifiedTypeName name="com.igeekhome.files.dao.impl.FileDaoImpl"/>
+<fullyQualifiedTypeName name="com.igeekhome.file.dao.FileDao"/>
+<fullyQualifiedTypeName name="com.igeekhome.pojo.File"/>
+<fullyQualifiedTypeName name="flexjson.JSONSerializer"/>
+<fullyQualifiedTypeName name="com.google.gson.Gson"/>
+<fullyQualifiedTypeName name="java.io.PrintWriter"/>
+</qualifiedTypeNameHistroy>

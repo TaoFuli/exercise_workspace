@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"
+href="easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+href="easyui/themes/icon.css">
+<script type="text/javascript" src="easyui/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+
+</head>
+<body>
+		<table id="dg"></table>
+		
+		<!-- ajax异步请求 -->
+		<script type="text/javascript">
+			$(function(){
+				$('#dg').datagrid({
+					title:'我的表格',
+					width:1000,
+					height:500,
+					rownumbers:true,
+					remoteSort:false,
+					nowrap:false,
+					fitColumns:true,
+					singleSelect:true,
+					pagination:true,
+					url:'search.do',
+					method:'get',
+					columns:[[
+						{field:'wid',title:'编号',width:100,sortable:true},
+						{field:'wleaveWord',title:'编号',width:100,sortable:true},
+						{field:'fk_uloginName',title:'编号',width:100,sortable:true},
+						{field:'wtime',title:'名称',width:80,align:'right',sortable:true}
+					]],
+					groupField:'wid',
+					groupFormatter:function(value,rows){
+						return value+'-'+rows.length+'Item(s)';
+					}
+				});
+				//分页
+				var pager=$('#dg').datagrid().datagrid('getPager');
+				pager.pagination();
+			})
+		</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dialog</title>
+<link rel="stylesheet" type="text/css"
+href="easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+href="easyui/themes/icon.css">
+<script type="text/javascript" src="easyui/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+
+</head>
+<body>
+	<h3>播放器组件</h3>
+	<button id="btn_play">打&nbsp;&nbsp;开</button>
+	<button id="btn_playmin">最小化</button>
+	<div id="d_paly">播放器位置</div>
+	<button id="btn_sharedf1">共享的文件</button>
+	<div id="d_shared"></div>
+	<a id="a_share" href="#">分享</a>
+	<div id="share_dialog"></div>
+	<script type="text/javascript">
+	$(function(){
+		$("#a_share").click(function(){
+			$("#share_dialog").dialog("open");
+		});
+		$("#share_dialog").dialog(
+				title:'复制下面链接分享',
+				width:750,
+				height:390,
+				data:{},
+				function(){
+				$.get("share1.do",function(data){
+					doucment.innerHTML(data);
+				});
+				/* $.post("/try/ajax/demo_test_post.php",{
+					name:"菜鸟教程",
+					url:"http://www.runoob.com"
+				},
+				function(data,status){
+					alert("数据: \n" + data + "\n状态: " + status);
+				}); */
+		})
+	})
+	
+	$("#share_dialo").dialog({
+		title:'复制下面链接分享',
+		width:750,
+		height:390,
+		closed:true,
+		cache:false,
+		href:'sharedFile.jsp',
+		modal:false,
+		collapsible:true,
+		minimizable:false,
+		resizable:false,
+		autoOpen: false
+	});
+	</script>
+	<script>
+			$(function(){
+				//打开事件
+				$("#btn_play").click(function(){
+					$("#d_paly").dialog("open");
+				});
+				//关闭事件
+				$("#btn_playmin").click(function(){
+					$("#d_paly").dialog("close");
+				});
+				//打开分享页事件
+				$("#btn_sharedf1").click(function(){
+					$("#d_shared").dialog("open");
+				});
+			});
+			//对话框事件
+			$("#d_shared").dialog({
+				title:'选择要分享的文件',
+				width:1125,
+				height:390,
+				closed:true,
+				cache:false,
+				href:'shareFile.jsp',
+				modal:false,
+				collapsible:true,
+				minimizable:false,
+				resizable:false,
+				autoOpen: false
+			});
+			//弹出对话框事件s
+			$("#d_paly").dialog({
+				title:'My Dialog',
+				width:1255,
+				height:650,
+				closed:true,
+				cache:false,
+				href:'OnlinPlay.jsp',
+				modal:false,
+				collapsible:false,
+				minimizable:false,
+				resizable:false,
+				autoOpen: false
+			});
+	</script>
+</body>
+</html>

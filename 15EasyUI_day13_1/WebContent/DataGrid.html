@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML方式创建  DataGrid</title>
+<link rel="stylesheet" type="text/css"
+href="easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+href="easyui/themes/icon.css">
+<script type="text/javascript" src="easyui/jquery.min.js"></script>
+<script type="text/javascript" 
+src="easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" 
+src="easyui/locale/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+		<!-- ajax异步请求的url的json数据 -->
+		<table id="dg" class="easyui-datagrid" style="width:500px;height:320px;"
+		data-options="pagination:true,pageSize,10,url:'datagrid_data.json',method:'get'">
+			<thead>
+				<tr>
+					<th data-options="field:'code',width:100px">编码</th>
+					<th data-options="field:'name',width:100px">名称</th>
+					<th data-options="field:'editTime',width:100px">价格</th>
+					<th data-options="field:'fileSize',width:100px">价格</th>
+				</tr>
+			</thead>
+					
+		</table>
+		<script type="text/javascript">
+				$(function(){
+					var pager=$('#dg').datagrid().datagrid('getPager');
+					pager.pagination({
+						buttons:[{
+							iconCls:'icon-search',
+							handler:function(){
+								alert('search');
+							}
+						},{
+							iconCls:'icon-add',
+							handler:function(){
+								alert('add');
+							}
+						},{
+							iconCls:'icon-edit',
+							handler:function(){
+								alert('edit');
+							}
+						}]
+					});
+				})
+		</script>
+
+</body>
+</html>

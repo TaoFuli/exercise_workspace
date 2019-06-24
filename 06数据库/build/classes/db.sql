@@ -1,0 +1,27 @@
+-- 创建数据库
+CREATE DATABASE shop;
+
+SHOW CREATE DATABASE shop;
+
+-- 使用
+USE shop;
+
+-- 创建用户数据表
+CREATE TABLE USER(
+id INT PRIMARY KEY AUTO_INCREMENT,
+username VARCHAR(20) NOT NULL UNIQUE,
+PASSWORD VARCHAR(32) NOT NULL
+);
+
+-- 插入一条用户数据
+INSERT INTO USER(username,PASSWORD) VALUES ('qiang','123456');
+INSERT INTO USER(username,PASSWORD) VALUES ('admin','123');
+
+-- 查询数据
+SELECT * FROM USER;
+
+-- 登录验证的时候
+SELECT * FROM USER WHERE username='qiang' AND PASSWORD='123456';
+SELECT * FROM USER WHERE username='admin' AND PASSWORD='123';
+
+
