@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+		<script type="text/javascript" src="easyui/jquery.min.js"></script>
+		<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+
+		<script>
+			$(function() {
+
+				$("#tab2").tabs();
+
+				$("#btn1").click(function() {
+
+					$("#tab2").tabs(
+						"add", {
+							title: "课程信息",
+							content: "语文数学外语",
+							closable: true,
+							tools: [{
+								iconCls: "icon-mini-refresh",
+								handler: function() {
+									$.messager.alert("标题", "刷新");
+								}
+							}]
+						}
+
+					);
+				});
+
+			});
+		</script>
+	</head>
+
+	<body>
+
+		<div class="easyui-tabs" style="width: 500px;height: 200px;">
+			<div title="标题1" style="padding: 20px;">内容1</div>
+			<div title="标题2" data-options="closable:true">内容2</div>
+			<div title="标题3" data-options="iconCls:'icon-reload'">内容3</div>
+		</div>
+
+		<div id="tab2">
+			<div title="教师信息">xxxxxxxxxxxxxxxxxxxxxxxx</div>
+			<div title="学生信息">xxxxxxxxxxxxxxxxxxxxxxxx</div>
+		</div>
+
+		<button id="btn1">添加</button>
+	</body>
+
+</html>

@@ -1,0 +1,42 @@
+package com.igeek.app.servlet;
+
+import java.io.PrintWriter;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/upload")
+public class UploadServlet extends HttpServlet {
+
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/html;charset=utf-8");
+		PrintWriter pw = resp.getWriter();
+		
+		// 表单中的文本内容
+		String username = req.getParameter("username");
+		System.out.println(username);
+		
+		// 表单中的某个对象
+		Part part = req.getPart("file");
+		
+		// 得到文件名						  
+		String fileName = part.getHeader("Content-Disposition");
+		System.out.println(fileName);
+		int start = fileName.indexOf("filename="+"filename=".length()+1);
+		fileName = fileName.substring(start);
+		fileName = fileName.substring(0, fileName.length()-1);
+		System.out.println("fileName:"+fileName);
+		
+		
+	}
+
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req, resp);
+	}
+
+}

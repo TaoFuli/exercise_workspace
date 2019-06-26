@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;10自定义标签/WebContent/WEB-INF/tags/igeektag.tld&apos; to &apos;login.tag&apos;" description="Rename resource &apos;igeektag.tld&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/WEB-INF/tags/igeektag.tld" name="login.tag" stamp="1534228088588" updateReferences="true"/>
+</session>

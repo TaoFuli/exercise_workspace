@@ -1,0 +1,15 @@
+package com.igeek.app;
+
+import com.igeek.utils.MailUtils;
+
+public class TestSendMail {
+
+	public static void main(String[] args) 
+	{
+		
+		MailUtils.sendMail(email, title, emailMsg);
+	
+
+	}
+
+}

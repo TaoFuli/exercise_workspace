@@ -1,0 +1,36 @@
+
+CREATE DATABASE qshop;
+
+USE qshop;
+
+DROP TABLE admin;
+
+CREATE TABLE admin
+(id INT PRIMARY KEY AUTO_INCREMENT,
+username VARCHAR(20) UNIQUE,
+PASSWORD VARCHAR(32) NOT NULL);
+
+INSERT INTO admin VALUES(NULL,'admin','123456');
+
+SELECT * FROM admin;
+
+INSERT INTO admin VALUES(NULL,'qiang',MD5('123456'));
+
+SELECT * FROM admin WHERE username='qiang' AND PASSWORD=MD5('123456');
+
+CREATE TABLE category
+(id INT PRIMARY KEY AUTO_INCREMENT,
+NAME VARCHAR(10) UNIQUE NOT NULL);
+
+CREATE TABLE goods
+(id INT PRIMARY KEY AUTO_INCREMENT,
+NAME VARCHAR(20) NOT NULL, 
+price FLOAT NOT NULL,
+image VARCHAR(100),
+descripiton TEXT,
+category_id INT,
+CONSTRAINT goods_category_fk FOREIGN KEY(category_id) REFERENCES category(id)
+);
+
+
+ALTER TABLE goods CHANGE COLUMN descripiton description TEXT;

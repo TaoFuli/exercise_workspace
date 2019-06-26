@@ -1,0 +1,30 @@
+
+8月 07, 2018 10:36:56.62 NEW SESSION
+8月 07, 2018 10:36:56.62 [11428:6884:0807/103656:ERROR:ssl_client_socket_openssl.cc(1158)] handshake failed; returned -1, SSL error code 1, net_error -101
+8月 07, 2018 10:36:56.62 [11428:6884:0807/103656:ERROR:ssl_client_socket_openssl.cc(1158)] handshake failed; returned -1, SSL error code 1, net_error -101
+8月 07, 2018 10:36:56.63 [11428:6884:0807/103656:ERROR:ssl_client_socket_openssl.cc(1158)] handshake failed; returned -1, SSL error code 1, net_error -101
+
+8月 08, 2018 14:48:53.76 NEW SESSION
+8月 08, 2018 14:48:53.76 [9460:8328:0808/144853:ERROR:ssl_client_socket_openssl.cc(1158)] handshake failed; returned -1, SSL error code 1, net_error -101
+8月 08, 2018 14:48:53.77 [9460:8328:0808/144853:ERROR:ssl_client_socket_openssl.cc(1158)] handshake failed; returned -1, SSL error code 1, net_error -101
+8月 08, 2018 14:48:53.78 [9460:8328:0808/144853:ERROR:ssl_client_socket_openssl.cc(1158)] handshake failed; returned -1, SSL error code 1, net_error -101
+8月 09, 2018 09:15:48.08 [15320:12596:0809/091548:ERROR:ssl_client_socket_openssl.cc(1158)] handshake failed; returned -1, SSL error code 1, net_error -101
+8月 09, 2018 09:39:37.92 [13644:14728:0809/093937:ERROR:ssl_client_socket_openssl.cc(1158)] handshake failed; returned -1, SSL error code 1, net_error -101
+8月 09, 2018 09:39:37.93 [13644:14728:0809/093937:ERROR:ssl_client_socket_openssl.cc(1158)] handshake failed; returned -1, SSL error code 1, net_error -101
+8月 09, 2018 09:39:37.94 [13644:14728:0809/093937:ERROR:ssl_client_socket_openssl.cc(1158)] handshake failed; returned -1, SSL error code 1, net_error -101
+
+8月 10, 2018 10:13:56.41 NEW SESSION
+8月 10, 2018 10:13:56.41 [10632:9172:0810/101356:ERROR:ipc_channel_win.cc(512)] pipe error: 232
+
+8月 16, 2018 14:37:29.67 NEW SESSION
+8月 16, 2018 14:37:29.67 [9200:8428:0816/143729:ERROR:ssl_client_socket_openssl.cc(1158)] handshake failed; returned -1, SSL error code 1, net_error -101
+8月 16, 2018 14:37:29.69 [9200:8428:0816/143729:ERROR:ssl_client_socket_openssl.cc(1158)] handshake failed; returned -1, SSL error code 1, net_error -101
+8月 16, 2018 14:37:29.69 [9200:8428:0816/143729:ERROR:ssl_client_socket_openssl.cc(1158)] handshake failed; returned -1, SSL error code 1, net_error -101
+
+8月 21, 2018 18:13:47.63 NEW SESSION
+8月 21, 2018 18:13:47.63 [9988:11476:0821/181347:ERROR:network_interfaces_win.cc(248)] GetAdaptersAddresses failed: 111
+8月 21, 2018 18:13:47.64 [9988:11476:0821/181347:ERROR:network_interfaces_win.cc(248)] GetAdaptersAddresses failed: 111
+8月 21, 2018 21:44:17.87 [9988:10576:0821/214417:ERROR:ssl_client_socket_openssl.cc(1158)] handshake failed; returned -1, SSL error code 1, net_error -101
+
+8月 24, 2018 15:12:11.18 NEW SESSION
+8月 24, 2018 15:12:11.19 [11296:15592:0824/151211:ERROR:ssl_client_socket_openssl.cc(1158)] handshake failed; returned -1, SSL error code 1, net_error -101

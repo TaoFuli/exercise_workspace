@@ -1,0 +1,64 @@
+JSON格式
+
+http://www.w3school.com.cn/json/index.asp
+
+验证
+http://www.bejson.com/
+
+1. 一本书
+
+{	
+	"id":1,
+	"name":"冰与火之歌",
+	"author":"乔治马丁",
+	"year":2012
+}
+
+
+2. 多本书
+[
+{	
+	"id":1,
+	"name":"冰与火之歌",
+	"author":"乔治马丁",
+	"year":2012
+},
+{	
+	"id":2,
+	"name":"冰与火之歌2",
+	"author":"乔治马丁",
+	"year":2013
+},
+{	
+	"id":1,
+	"name":"冰与火之歌",
+	"author":"乔治马丁",
+	"year":2014
+}
+]
+	
+
+3. 复合
+{
+	"name": "无锡市新华书店",
+	"address": "无锡市中山路",
+	"books": [{
+			"id": 1,
+			"name": "冰与火之歌",
+			"author": "乔治马丁",
+			"year": 2012
+		},
+		{
+			"id": 2,
+			"name": "冰与火之歌2",
+			"author": "乔治马丁",
+			"year": 2013
+		},
+		{
+			"id": 1,
+			"name": "冰与火之歌",
+			"author": "乔治马丁",
+			"year": 2014
+		}
+	]
+}

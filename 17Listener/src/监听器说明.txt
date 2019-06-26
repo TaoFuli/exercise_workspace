@@ -1,0 +1,37 @@
+监听器
+
+1. 监听域对象的创建与销毁
+// ServletContextLister		->	监听ServletContext对象的创建和销毁
+// HttpRequestListener      ->  监听Request对象
+// HttpSessionListener 		->  监听Session对象
+
+2. 监听域对象中属性的添加修改移除
+ServletContextAttributeLister
+HttpSessionAttributeListener
+HttpRequestListener
+
+3. 监听 放到Session中对象的状态
+HttpSessionBindingListener		监听对象被绑定或解绑Session
+HttpSessionActivationListener  	监听对象被钝化或活化
+
+服务器关闭  Session会被保存
+服务器启动  之前的Session会被恢复 0
+
+被钝化活化的对象的类需要实现Serializable接口,这个接口是个标志接口.
+
+钝化配置
+<Context>
+ <!-- maxIdleSwap:session中的对象多长时间不使用就钝化 -->
+ <!-- directory:钝化后的对象的文件写到磁盘的哪个目录下  配置钝化的对象文件在												work/catalina/localhost/钝化文件 -->
+ <Manager className="org.apache.catalina.session.PersistentManager" maxIdleSwap="1">
+  <Store className="org.apache.catalina.session.FileStore" directory="igeek" />
+ </Manager>
+</Context>
+
+
+实现的功能: 维护一个在线用户列表
+1. 信息存在 ServletContext中
+2. 在ServletContext创建的时候,就去创建一个空的容器放在ServletContext	(ServletContextListener 监听)
+3. 会话创建时,将用户信息添加到这个容器中	(HttpSessionListener 监听)
+4. 会话结束时,将用户信息从到这个容器移除	(HttpSessionListener 监听)
+

@@ -1,0 +1,45 @@
+创建自定义标签的方式
+
+方式1:
+
+步骤1.定义一个自定义标签类从TagSupport类继承
+要输出什么内容通过重写doStartTag()方法
+使用pageContext.getOut().println()输出
+
+步骤2:
+从tomcat目录下
+E:\apache-tomcat-8.5.20\webapps\examples\WEB-INF\jsp2 
+找到jsp2-example-taglib.tld文件
+复制到你当前WEB-INF下
+
+方式2:
+
+步骤1:
+在WEB-INF下创建一个tags目录
+
+创建一个login.tag自定义标签文件
+
+内容如下:
+<%@ tag language="java" pageEncoding="UTF-8"%>
+
+<!-- 设定标签有哪些属性 -->
+<%@ attribute name="servlet" required="true"%>
+<%@ attribute name="textName" required="true"%>
+<%@ attribute name="passwordName" required="true"%>
+ 
+<form  action="${servlet}" method="post">
+   <table><tr>
+	<td>用户名</td>
+	<td><input type="text" name="${textName }"></td></tr>
+	<tr><td>密码</td>
+            <td><input type="password" name="${passwordName }"></td></tr>
+          <tr><td colspan="2"><input type="submit" value="登录"></td></tr>
+  </table>
+</form>
+
+步骤2:
+在要是用自定义标签的jsp加入
+<%@ taglib tagdir="/WEB-INF/tags" prefix="igeek" %>
+
+调用:
+<igeek:login servlet="loginchk.jsp" textName="username" passwordName="password"></igeek:login>

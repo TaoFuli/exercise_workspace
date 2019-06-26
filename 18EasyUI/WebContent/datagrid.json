@@ -1,0 +1,22 @@
+[
+	{
+		"code":"ISBN-1234234234",
+		"name":"高等数学",
+		"price":20
+	},
+	{
+		"code":"ISBN-1234234234",
+		"name":"量子力学",
+		"price":20
+	},
+	{
+		"code":"ISBN-1234234234",
+		"name":"Javascript从入门到放弃",
+		"price":35
+	},
+	{
+		"code":"ISBN-1234234234",
+		"name":"Java",
+		"price":100
+	}
+]

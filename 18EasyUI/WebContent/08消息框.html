@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+						<link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+		<script type="text/javascript" src="easyui/jquery.min.js"></script>
+		<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+		
+		<script>
+			
+			$(function(){
+				
+				$("#btn1").click(function(){
+					
+					//$.messager.alert("标题","消息内容");
+					
+					$.messager.confirm("标题","中饭吃了么?",function(result){
+						if(result)
+						{
+							console.log("吃过了");
+						}
+						else
+						{
+							console.log("没吃呢");
+						}
+					});
+					
+				});
+				
+			});
+			
+		</script>
+	</head>
+	<body>
+		
+		<button id="btn1">弹出消息</button>
+	</body>
+</html>

@@ -1,0 +1,6 @@
+#Tomcat publish data
+#Thu Aug 30 21:57:19 CST 2018
+org.eclipse.jst.jee.server\:02Example2_\u7528\u6237\u767B\u5F55_\u6570\u636E\u5E93=E\:\\apache-tomcat-8.5.20\\wtpwebapps\\02Example2_\u7528\u6237\u767B\u5F55_\u6570\u636E\u5E93
+org.eclipse.jst.jee.server\:20uploadfile=E\:\\apache-tomcat-8.5.20\\wtpwebapps\\20uploadfile
+org.eclipse.jst.jee.server\:02Example1_\u7528\u6237\u767B\u5F55=E\:\\apache-tomcat-8.5.20\\wtpwebapps\\02Example1_\u7528\u6237\u767B\u5F55
+org.eclipse.jst.jee.server\:99exercise_easyui=E\:\\apache-tomcat-8.5.20\\wtpwebapps\\99exercise_easyui

@@ -1,0 +1,5 @@
+实现的功能: 维护一个在线用户列表
+1. 信息存在 ServletContext中
+2. 在ServletContext创建的时候,就去创建一个空的容器放在ServletContext	(ServletContextListener 监听)
+3. 会话创建时,将用户信息添加到这个容器中	(HttpSessionAttributeListener 监听)
+4. 会话结束时,将用户信息从到这个容器移除	(HttpSessionListener 监听)

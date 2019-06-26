@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<!-- 加载easyui -->
+		<link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+		<script type="text/javascript" src="easyui/jquery.min.js"></script>
+		<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+
+
+		<script>
+			// 解析器 负责分析文档中哪些元素有easyui class属性,有的话就给这些元素 加上easyui的样式
+			
+			// 关闭自动解析
+			
+			// auto 属性 
+			$.parser.auto = false;
+			
+			
+			// onComplete 事件
+			$.parser.onComplete = function(){
+				console.log("解析完成");				
+			}
+			
+			
+			$(function(){
+				
+				$("#btn1").click(function(){
+					$("#div02").dialog();
+					
+					// parrse 方法
+					$.parser.parse("#div02");
+				});
+			});
+			
+		</script>
+	</head>
+
+	<body>
+
+		<h1>方式1: 通过class属性 使div编程easy-ui对话框</h1>
+		<div class="easyui-dialog" style="width:400px;height:200px">
+			内容
+		</div>
+
+		<h1>方式2:代码方式</h1>
+		<div id="div02">内容2</div>
+
+		<div id="div03">内容3</div>
+		
+		<button id="btn1">解析</button>
+	</body>
+
+</html>

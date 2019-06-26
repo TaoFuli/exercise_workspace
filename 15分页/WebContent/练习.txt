@@ -1,0 +1,16 @@
+点击国家,显示该国家城市列表
+
+1. 创建实体类
+City
+
+2. 编写DAO
+ICityDAO
+CityDAOImpl
+
+3. 编写Service
+CityService
+
+4. 编写Servlet
+CityServlet
+
+5. 编写jsp

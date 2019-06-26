@@ -1,0 +1,18 @@
+1534387097796	Move compilation unit
+1534390212018	Rename package 'com.igeek.dao.impl'
+1534390218840	Rename package 'com.igeek.dao'
+1534390234341	Delete element
+1534390269222	Rename resource 'login.jsp'
+1534390285152	Rename type 'LoginServlet'
+1534390297223	Rename type 'LoginCheckServlet'
+1534390303743	Rename type 'LogoutServlet'
+1534390883534	Rename resource 'main.jsp'
+1534401377000	Copy compilation unit
+1534402816615	Move 'adminCategory.jsp' to 'WEB-INF'
+1534402934154	Rename type 'AdminListCategoryServlet'
+1534402940230	Rename type 'AdmintCategoryServlet'
+1534403257287	Copy file
+1534403265328	Rename resource 'adminC.jsp'
+1534404970051	Rename type 'AdminAddCategoryServlet'
+1534404993313	Rename type 'AdminCategoryAddServlet'
+1534472660363	Copy files

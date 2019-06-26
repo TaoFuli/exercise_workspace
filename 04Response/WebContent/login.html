@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload=function(){
+		
+		
+		
+	}
+	
+	function refresh()
+	{
+		console.log("refresh");
+		var img = document.getElementById("img");
+		img.src = "checkImage?tm="+Math.random();
+	}
+</script>
+</head>
+<body>
+<h1>用户登录</h1>
+<form action="loginchk" method="get">
+<input type="text" name="username"><br>
+<input type="password" name="password"><br>
+<input type="text" name="checkCode"><img src="checkImage" width="100" height="30" onclick="refresh()" id="img"/>
+<img src="checkImage" width="100" height="30" onclick="javascript:this.src='checkImage?tm='+Math.random()" />
+<input type="submit" value="提交">
+</form>
+</body>
+</html>

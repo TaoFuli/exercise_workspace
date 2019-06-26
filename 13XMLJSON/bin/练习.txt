@@ -1,0 +1,46 @@
+// 练习一下:
+// 1 使用一个xml存储一个学生信息 
+// 张三 年龄18岁 高三一班
+
+// 2 使用一个xml存储一个老师信息 
+// 高老师 
+// 48岁
+// 语文老师
+
+// 3 使用一个xml存储多个学生信息 
+
+// 4 使用一个xml存储学校的信息
+// 学校名字
+// 老师信息
+// 学生信息 
+
+// 5. 使用json格式存储以上信息
+ 
+// 6. 使用dom或sax方式读取
+一个学生信息的xml
+多个学生信息的xml
+一个学校的xml信息
+
+// 7. 解析 无锡天气信息
+wuxiweather.xml
+将有用的信息解析并显示
+
+http://v.juhe.cn/weather/index?cityname=%E5%B8%B8%E5%B7%9E&dtype=xml&format=2&key=c32691b0071866c00aadcf2a0dfb648e
+
+ 
+// 综合练习一:
+// 注册juhe.cn 申请的api
+// https://www.juhe.cn/docs/index/otherid/1
+// 使用的api，编写一个查询页面。
+// 如:编写一个查询手机号归属地的页面
+// 如:查询汇率页面
+
+// 综合练习二:
+// 使用world数据库
+// 编写一个Servlet
+// 传入type = json // 或 xml
+// 传入country = china
+// 返回json或xml格式的所有china的所有城市信息
+// http://localhost:8080/world/city?country=china&type=json
+
+ 

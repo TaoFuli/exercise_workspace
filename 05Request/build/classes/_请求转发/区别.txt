@@ -1,0 +1,13 @@
+重定向和请求转发的区别
+
+重定向
+resp.sendRedirect("loginSuccess.html");
+请求转发
+req.getRequestDispatcher("/loginSuccess.html").forward(req,resp);
+
+1. 重定向,客户端会向服务器请求2次,请求转发只有一次
+2. 重定向,客户端地址栏会变化, 请求转发不会变
+3. 重定向,可以定向到其他网站,请求转发不行
+4. 转发的性能优于重定向
+
+

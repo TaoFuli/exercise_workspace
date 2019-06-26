@@ -1,0 +1,15 @@
+package com.igeek.app;
+
+import com.igeek.utils.MailUtils;
+
+public class TestSendMail {
+
+	public static void main(String[] args) 
+	{
+		
+		MailUtils.sendMail("6157500@qq.com", "注册成功", "哈哈啊234234234");
+	
+
+	}
+
+}

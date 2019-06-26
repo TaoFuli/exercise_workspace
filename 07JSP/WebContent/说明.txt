@@ -1,0 +1,18 @@
+说明:
+
+JSP
+	适合界面的输出
+Servlet	(界面输出非常麻烦)
+	适合接受参数
+	逻辑处理
+	控制界面跳转
+	
+	
+Servlet Java代码主 + html代码为辅
+JSP     Java为辅助 + html代码为主
+
+JSP本质上也是Servlet
+
+_1helloworld.jsp 先被转换为Servlet _1helloworld_jsp.java
+
+E:\apache-tomcat-8.5.20\work\Catalina\localhost\07JSP\org\apache\jsp

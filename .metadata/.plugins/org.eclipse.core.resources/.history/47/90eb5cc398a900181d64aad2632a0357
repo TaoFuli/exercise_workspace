@@ -1,0 +1,11 @@
+package com.igeek.app;
+
+public class TestSendMail {
+
+	public static void main(String[] args) 
+	{
+	
+
+	}
+
+}
